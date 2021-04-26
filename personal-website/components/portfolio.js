@@ -1,9 +1,9 @@
-import Highcharts from '../utils/Highcharts'
 import React from 'react';
 import utilStyles from '../styles/utils.module.css'
 import styles from './layout.module.css'
 import HighchartsReact from "highcharts-react-official";
-import drilldown from 'highcharts-drilldown';
+import Highcharts from '../utils/Highcharts.js'
+var createReactClass = require('create-react-class');
 
 const highchartsOptions = {
     chart: {
@@ -137,7 +137,7 @@ const highchartsOptions = {
                         1.1
                     ],
                     [
-                        'OTHER',
+                        'Other',
                         18.7
                     ]
                 ]
@@ -149,25 +149,22 @@ const highchartsOptions = {
     },
 };
 
-// this is in a separate object intentionally, it prevents an error that I think is
-// cause by next.js server side rendering
-// const colorOptions = {
-// colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
-//     return {
-//         radialGradient: {
-//             cx: 0.5,
-//             cy: 0.2,
-//             r: 0.7
-//         },
-//         stops: [
-//             [0, color],
-//             [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
-//         ]
-//     };
-// })
-// }
-
-var createReactClass = require('create-react-class');
+const colorOptions = {
+    // Will set my own colors
+    // colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
+    //     return {
+    //         radialGradient: {
+    //             cx: 0.5,
+    //             cy: 0.2,
+    //             r: 0.7
+    //         },
+    //         stops: [
+    //             [0, color],
+    //             [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
+    //         ]
+    //     };
+    // })
+}
 
 const PortfolioPieChart = createReactClass({
     // componentDidMount() {
@@ -182,7 +179,7 @@ const PortfolioPieChart = createReactClass({
                 <HighchartsReact
                     id="pieId"
                     highcharts={Highcharts}
-                    options={highchartsOptions}
+                    options={{ ...highchartsOptions, ...colorOptions }}
                 />
 
                 <section className={utilStyles.headingMd}>
