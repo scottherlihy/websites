@@ -3,9 +3,9 @@ import React from 'react';
 import utilStyles from '../styles/utils.module.css'
 import styles from './layout.module.css'
 import HighchartsReact from "highcharts-react-official";
-import drilldow from "highcharts/modules/drilldown";
+import drilldown from "highcharts/modules/drilldown";
 
-drilldow(Highcharts);
+drilldown(Highcharts);
 
 const highchartsOptions = {
     chart: {
