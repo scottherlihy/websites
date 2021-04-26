@@ -1,7 +1,9 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import Layout, { siteTitle } from '../components/layout'
 import Link from 'next/link'
 import utilStyles from '../styles/utils.module.css'
+import styles from '../components/layout.module.css'
 
 export default function Home() {
   return (
@@ -77,6 +79,11 @@ export default function Home() {
 
       `}</style>
       </div>
+
+      <div class={styles.rocket}>
+        <img src="/images/rocket.png" alt="zoom"></img>
+      </div>
+
     </Layout>
   )
 }

@@ -13,3 +13,47 @@
 .backToHome {
   margin: 3rem 0 0;
 }
+
+.rocket img {
+  height: 100px;
+  width: 154px;
+  animation: fly 5s ease-in-out 1;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.rocket {
+  width: 100%;
+}
+
+@keyframes fly{
+  0%{
+    transform: translate3D(0vw, 0, 0);
+    opacity: 0;
+  }
+  15%{
+    opacity: 1;
+  }
+  30%{
+    transform: translate3D(75vw, -50vh, 0) rotate(-108deg);
+    opacity: 1;
+  }
+  50%{
+    transform: translate3D(50vw, -100vh, 0) rotate(-180deg);
+    opacity: 1;
+  }
+  70%{
+    transform: translate3D(15vw, -65vh, 0) rotate(-252deg);
+    opacity: 1;
+  }
+  85%{
+    opacity: 1;
+  }
+  100%{
+    transform: translate3D(100vw, 0vh, 0) rotate(-390deg);
+    opacity: 0;
+  }
+}
