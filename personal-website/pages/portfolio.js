@@ -1,3 +1,6 @@
+import React from "react";
+import PortfolioPieChart from '../components/portfolio'
+
 export default function Portfolio() {
-    return <h1>Coming Soon!</h1>
+    return (<PortfolioPieChart></PortfolioPieChart>);
 }
