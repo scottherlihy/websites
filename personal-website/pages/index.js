@@ -83,7 +83,6 @@ export default function Home() {
       <div class={styles.rocket}>
         <img src="/images/rocket.png" alt="zoom"></img>
       </div>
-
     </Layout>
   )
 }
