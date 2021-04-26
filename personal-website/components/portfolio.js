@@ -42,16 +42,16 @@ const highchartsOptions = {
         colorByPoint: true,
         data: [{
             name: 'Cash',
-            y: 30,
+            y: 17.62,
             drilldown: null
         }, {
             name: 'Crytpo',
-            y: 30,
+            y: 45.38,
             drilldown: 'Crypto'
         }, {
             name: 'Equities',
-            y: 40,
-            drilldown: null
+            y: 37,
+            drilldown: 'Equities'
         }]
     }],
     drilldown: {
@@ -62,11 +62,85 @@ const highchartsOptions = {
                 data: [
                     [
                         'Ethereum',
-                        20
+                        48
                     ],
                     [
                         'Bitcoin',
-                        10
+                        45
+                    ],
+                    [
+                        'Maker',
+                        2.5
+                    ],
+                    [
+                        'Uniswap',
+                        1.5
+                    ],
+                    [
+                        'Cosmos',
+                        1.06
+                    ],
+                    [
+                        'Graph',
+                        0.3
+                    ],
+                    [
+                        'Radicle',
+                        0.6
+                    ]
+                ]
+            },
+            {
+                name: 'Equities',
+                id: 'Equities',
+                data: [
+                    [
+                        'VACQ',
+                        16.55
+                    ],
+                    [
+                        'TSLA',
+                        14
+                    ],
+                    [
+                        'SHOP',
+                        13.7
+                    ],
+                    [
+                        'SQ',
+                        12.09
+                    ],
+                    [
+                        'BHR',
+                        9
+                    ],
+                    [
+                        'MP',
+                        4.8
+                    ],
+                    [
+                        'AAPL',
+                        4.17
+                    ],
+                    [
+                        'SRAC',
+                        3.9
+                    ],
+                    [
+                        'CHPT',
+                        3
+                    ],
+                    [
+                        'ICLN',
+                        2.6
+                    ],
+                    [
+                        'PBW',
+                        1.1
+                    ],
+                    [
+                        'OTHER',
+                        18.7
                     ]
                 ]
             }
@@ -104,6 +178,24 @@ export default function PortfolioPieChart() {
                 highcharts={Highcharts}
                 options={highchartsOptions}
             />
+
+            <section className={utilStyles.headingMd}>
+                <p>This is a vizualization tool I use to track and better understand how and where I am investing my money.</p>
+                <p>It's fairly new and does not yet pull in allocation or price changes dynamically, but will soon! (Last updated April 26)</p>
+            </section>
+
+            <br></br>
+            <br></br>
+            <section className={utilStyles.headingXSm}>
+                <p>The above references an opinion and is for information purposes only. It is not intended to be investment advice. Seek a duly licensed professional for investment advice.</p>
+            </section>
+            <style jsx>{`
+        h2 {
+          display: flex;
+          align-items: center;
+        }
+
+      `}</style>
         </div>
     );
 }
