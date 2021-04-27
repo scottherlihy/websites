@@ -28,7 +28,6 @@ const highchartsOptions = {
     },
     plotOptions: {
         pie: {
-            // allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
                 enabled: true,
@@ -134,11 +133,23 @@ const highchartsOptions = {
                     ],
                     [
                         'PBW',
+                        1.5
+                    ],
+                    [
+                        'TAN',
                         1.1
                     ],
                     [
+                        'FSR',
+                        0.5
+                    ],
+                    [
+                        'BUDZ',
+                        0.420
+                    ],
+                    [
                         'Other',
-                        18.7
+                        16.58
                     ]
                 ]
             }
@@ -167,11 +178,6 @@ const colorOptions = {
 }
 
 const PortfolioPieChart = createReactClass({
-    // componentDidMount() {
-    // load modules
-    // drilldown(Highcharts);
-    // },
-
     render() {
         return (
             <div className={styles.container}>
@@ -205,34 +211,3 @@ const PortfolioPieChart = createReactClass({
 });
 
 export default PortfolioPieChart;
-
-// export default function PortfolioPieChart() {
-//     return (
-//         <div className={styles.container}>
-//             <h2 className={utilStyles.headingLg}>Investment Portfolio</h2>
-//             <HighchartsReact
-//                 id="pieId"
-//                 highcharts={Highcharts}
-//                 options={highchartsOptions}
-//             />
-
-//             <section className={utilStyles.headingMd}>
-//                 <p>This is a vizualization tool I use to track and better understand how and where I am investing my money.</p>
-//                 <p>It's fairly new and does not yet pull in allocation or price changes dynamically, but will soon! (Last updated April 26)</p>
-//             </section>
-
-//             <br></br>
-//             <br></br>
-//             <section className={utilStyles.headingXSm}>
-//                 <p>The above references an opinion and is for information purposes only. It is not intended to be investment advice. Seek a duly licensed professional for investment advice.</p>
-//             </section>
-//             <style jsx>{`
-//         h2 {
-//           display: flex;
-//           align-items: center;
-//         }
-
-//       `}</style>
-//         </div>
-//     );
-// }
