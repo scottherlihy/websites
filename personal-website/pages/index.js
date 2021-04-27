@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Layout, { siteTitle } from '../components/layout'
 import Link from 'next/link'
 import utilStyles from '../styles/utils.module.css'
@@ -18,17 +17,17 @@ export default function Home() {
       {/* <Portfolio></Portfolio> */}
 
       <div className="grid">
-        <Link href="/morning">
-          <a className="card">
-            <h3>Good Morning &rarr;</h3>
-            <p>An in depth dashboard I created for my morning routine.</p>
-          </a>
-        </Link>
-
         <Link href="/portfolio">
           <a className="card">
             <h3>Portfolio &rarr;</h3>
             <p>A vizualization I use to better understand my investment allocations.</p>
+          </a>
+        </Link>
+
+        <Link href="/morning">
+          <a className="card">
+            <h3>Good Morning &rarr;</h3>
+            <p>An in depth dashboard I created for my morning routine.</p>
           </a>
         </Link>
 

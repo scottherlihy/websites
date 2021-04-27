@@ -1,8 +1,9 @@
+import HighchartsReact from "highcharts-react-official";
+import Highcharts from '../utils/Highcharts.js'
+import HomeButton from './homeButton';
 import React from 'react';
 import utilStyles from '../styles/utils.module.css'
 import styles from './layout.module.css'
-import HighchartsReact from "highcharts-react-official";
-import Highcharts from '../utils/Highcharts.js'
 var createReactClass = require('create-react-class');
 
 const highchartsOptions = {
@@ -181,6 +182,7 @@ const PortfolioPieChart = createReactClass({
     render() {
         return (
             <div className={styles.container}>
+                <HomeButton />
                 <h2 className={utilStyles.headingLg}>Investment Portfolio</h2>
                 <HighchartsReact
                     id="pieId"

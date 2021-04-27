@@ -1,3 +1,10 @@
+import HomeButton from '../components/homeButton';
+import styles from '../components/layout.module.css'
+
 export default function Morning() {
-    return <h1>Coming Soon!</h1>
+    return (
+        <div className={styles.container}>
+            <HomeButton />
+            <h1>Coming Soon!</h1>
+        </div>);
 }
