@@ -31,6 +31,13 @@ export default function Home() {
           </a>
         </Link>
 
+        <Link href="/rankings">
+          <a className="card">
+            <h3>Rankings Tracker&rarr;</h3>
+            <p>Some UI practice and NFL predictions.</p>
+          </a>
+        </Link>
+
         <style jsx>{`
         .grid {
           display: flex;
