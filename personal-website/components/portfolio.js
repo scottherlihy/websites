@@ -143,7 +143,6 @@ export default function PortfolioPieChart({ rows }) {
                 <p>This is a vizualization tool I use to track and better understand how and where I am investing my money.</p>
                 <p>It currently pulls in real time price data on page load by utilizing a Google Sheets API as a CDM.</p>
             </section>
-
             <br></br>
             <br></br>
             <section className={utilStyles.headingXSm}>
