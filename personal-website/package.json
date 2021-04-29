@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "create-react-class": "15.7.0",
+    "googleapis": "72.0.0",
     "highcharts": "9.0.1",
     "highcharts-drilldown": "0.1.7",
     "highcharts-react-official": "3.0.0",

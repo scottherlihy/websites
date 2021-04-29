@@ -91,7 +91,7 @@ export default function Home() {
       `}</style>
       </div>
 
-      <div class={styles.rocket}>
+      <div className={styles.rocket}>
         <img src="/images/rocket.png" alt="zoom"></img>
       </div>
     </Layout>

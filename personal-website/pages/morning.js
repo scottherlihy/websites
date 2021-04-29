@@ -1,7 +1,7 @@
 import HomeButton from '../components/homeButton';
 import styles from '../components/layout.module.css'
 
-export default function Morning() {
+export default function Morning({ rows }) {
     return (
         <div className={styles.container}>
             <HomeButton />
