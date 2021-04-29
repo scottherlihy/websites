@@ -8,7 +8,7 @@ export async function getGSheetRows() {
             null,
             // we need to replace the escaped newline characters
             // https://stackoverflow.com/questions/50299329/node-js-firebase-service-account-private-key-wont-parse
-            process.env.GOOGLE_SHEETS_PRIVATE_KEY.replace(/\\n/g, "\n"),
+            process.env.GOOGLE_SHEETS_PRIVATE_KEY.replace(/\\n/g, '\n'),
             scopes
         );
 
