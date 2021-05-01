@@ -87,7 +87,6 @@ export default function Home() {
         .logo {
           height: 1em;
         }
-
       `}</style>
       </div>
 

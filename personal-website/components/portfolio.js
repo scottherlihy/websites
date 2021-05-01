@@ -7,7 +7,7 @@ import styles from './layout.module.css'
 
 const topLevelRange = Array.from(new Array(2), (x, i) => i + 9);;
 const cryptoRange = Array.from(new Array(7), (x, i) => i + 16);;
-const equityRange = Array.from(new Array(10), (x, i) => i + 27);;
+const equityRange = Array.from(new Array(11), (x, i) => i + 27);;
 
 function GetColumnIndex(letter) {
     return letter.charCodeAt(0) - 97;
