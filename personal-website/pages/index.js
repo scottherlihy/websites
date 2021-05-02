@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>Hi I'm Scott, I’m interested in space, robotics, crypto, and urban infrastructure.</p>
-        <p> This is a personal website where I am having fun learning about how to build web apps. I don't have a lot of
+        <p>This is a personal website where I am having fun learning about how to build web apps. I don't have a lot of
         front-end experience, but I've challenged myself to work on this website every day for the next year and see
         where I end up. Hopefully I learn a lot and build some cool things in the process. Follow along with the links
         below and let me know if you have any ideas on what I should build!
