@@ -1,1 +1,3 @@
 This is a personal website where I am having fun learning about how to build web apps. I don't have a lot of front-end experience, but I've challenged myself to work on this website every day for the next year and see where I end up. Hopefully I learn a lot and build some cool things in the process. Follow along and let me know if you have any ideas on what I should build!
+
+Note: currently the hosting site is not properly reading environment variables. This means that the current changes are not being deployed to the production environment. I will continue to update this repository and hopefully resolve the other issue shortly.
