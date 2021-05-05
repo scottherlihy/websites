@@ -7,7 +7,7 @@ export async function getGSheetRows() {
     try {
         const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
         const jwt = new google.auth.JWT(
-            process.env.GOOGLE_SHEETS_CLIENT_EMAIL.replace(/\\n/g, ''),
+            process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
             // email,
             null,
             // we need to replace the escaped newline characters
