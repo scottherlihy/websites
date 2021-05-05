@@ -1,6 +1,7 @@
 import { google } from "googleapis";
 
 const email = "allocation-reader@personal-website-312120.iam.gserviceaccount.com"
+const idtmp = "1_UF6nCU4qCwMVjnKnbnJV0PIX1ADe-g2RsSsIKKy9_g"
 
 export async function getGSheetRows() {
     try {
@@ -17,7 +18,8 @@ export async function getGSheetRows() {
 
         const sheets = google.sheets({ version: "v4", auth: jwt });
         const response = await sheets.spreadsheets.values.get({
-            spreadsheetId: process.env.SPREADSHEET_ID.replace(/\\n/g, ''),
+            // spreadsheetId: process.env.SPREADSHEET_ID.replace(/\\n/g, ''),
+            spreadsheetId: idtmp,
             range: "A1:K50",
         });
 
