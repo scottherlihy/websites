@@ -1,14 +1,14 @@
 import { google } from "googleapis";
 
-const email = "allocation-reader@personal-website-312120.iam.gserviceaccount.com"
+// const email = "allocation-reader@personal-website-312120.iam.gserviceaccount.com"
 const idtmp = "1_UF6nCU4qCwMVjnKnbnJV0PIX1ADe-g2RsSsIKKy9_g"
 
 export async function getGSheetRows() {
     try {
         const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
         const jwt = new google.auth.JWT(
-            // process.env.GOOGLE_SHEETS_CLIENT_EMAIL.replace(/\\n/g, ''),
-            email,
+            process.env.GOOGLE_SHEETS_CLIENT_EMAIL.replace(/\\n/g, ''),
+            // email,
             null,
             // we need to replace the escaped newline characters
             // https://stackoverflow.com/questions/50299329/node-js-firebase-service-account-private-key-wont-parse
