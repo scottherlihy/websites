@@ -6,8 +6,9 @@ const idtmp = "1_UF6nCU4qCwMVjnKnbnJV0PIX1ADe-g2RsSsIKKy9_g"
 export async function getGSheetRows() {
     try {
         const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
+        console.log("email", email)
         const jwt = new google.auth.JWT(
-            // process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+            // process.env.GOOGLE_SHEETS_CLIENT_EMAIL.replace('\n', ''),
             email,
             null,
             // we need to replace the escaped newline characters
@@ -17,6 +18,7 @@ export async function getGSheetRows() {
         );
 
         const sheets = google.sheets({ version: "v4", auth: jwt });
+        console.log("idtmp", idtmp)
         const response = await sheets.spreadsheets.values.get({
             // spreadsheetId: process.env.SPREADSHEET_ID.replace(/\\n/g, ''),
             spreadsheetId: idtmp,
