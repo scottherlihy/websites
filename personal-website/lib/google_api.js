@@ -12,14 +12,12 @@ export async function getGSheetRows() {
             process.env.GOOGLE_SHEETS_PRIVATE_KEY.replace(/\\n/g, '\n'),
             scopes
         );
-
         const sheets = google.sheets({ version: "v4", auth: jwt });
         console.log("idtmp", process.env.SPREADSHEET_ID)
         const response = await sheets.spreadsheets.values.get({
             spreadsheetId: process.env.SPREADSHEET_ID,
             range: "A1:K50",
         });
-
         const rows = response.data.values;
         return rows;
     } catch (err) {
