@@ -3,7 +3,6 @@ import { google } from "googleapis";
 export async function getGSheetRows() {
     try {
         const scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
-        console.log("email", process.env.GOOGLE_SHEETS_CLIENT_EMAIL)
         const jwt = new google.auth.JWT(
             process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
             null,
@@ -13,7 +12,6 @@ export async function getGSheetRows() {
             scopes
         );
         const sheets = google.sheets({ version: "v4", auth: jwt });
-        console.log("idtmp", process.env.SPREADSHEET_ID)
         const response = await sheets.spreadsheets.values.get({
             spreadsheetId: process.env.SPREADSHEET_ID,
             range: "A1:K50",
