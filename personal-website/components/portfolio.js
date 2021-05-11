@@ -31,18 +31,25 @@ function GetSeriesData(rows) {
     }
 
     return [{
+        dataSorting: {
+            enabled: true
+        },
         colorByPoint: true,
         data: cash.concat(dynamicAssets)
     }];
 }
 
 function GetCryptoDrilldownData(rows) {
-    let dynamicAssets = []
+    let dynamicAssetsMap = new Map();
     for (var i = 0; i < cryptoRange.length; i++) {
         let rowsIndex = cryptoRange[i];
-        dynamicAssets.push(
-            [rows[rowsIndex][GetColumnIndex('a')], rows[rowsIndex][GetColumnIndex('e')] * 100])
+        dynamicAssetsMap.set(
+            rows[rowsIndex][GetColumnIndex('a')], rows[rowsIndex][GetColumnIndex('e')] * 100)
     }
+    let sortedDynamicAssetsMap = new Map([...dynamicAssetsMap].sort(function (a, b) { return a[1] - b[1] }))
+    let dynamicAssets = []
+    sortedDynamicAssetsMap.forEach((value, key, map) => { dynamicAssets.push([key, value]) })
+
     return {
         name: 'Crypto',
         id: 'Crypto',
@@ -52,12 +59,15 @@ function GetCryptoDrilldownData(rows) {
 
 // can probably collapse this with the function above
 function GetEquityDrilldownData(rows) {
-    let dynamicAssets = []
+    let dynamicAssetsMap = new Map();
     for (var i = 0; i < equityRange.length; i++) {
         let rowsIndex = equityRange[i];
-        dynamicAssets.push(
-            [rows[rowsIndex][GetColumnIndex('a')], rows[rowsIndex][GetColumnIndex('e')] * 100])
+        dynamicAssetsMap.set(
+            rows[rowsIndex][GetColumnIndex('a')], rows[rowsIndex][GetColumnIndex('e')] * 100)
     }
+    let sortedDynamicAssetsMap = new Map([...dynamicAssetsMap].sort(function (a, b) { return a[1] - b[1] }))
+    let dynamicAssets = []
+    sortedDynamicAssetsMap.forEach((value, key, map) => { dynamicAssets.push([key, value]) })
     return {
         name: 'Equities',
         id: 'Equities',
