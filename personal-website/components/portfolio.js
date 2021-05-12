@@ -6,8 +6,8 @@ import utilStyles from '../styles/utils.module.css'
 import styles from './layout.module.css'
 
 const topLevelRange = Array.from(new Array(2), (x, i) => i + 9);;
-const cryptoRange = Array.from(new Array(8), (x, i) => i + 16);;
-const equityRange = Array.from(new Array(11), (x, i) => i + 27);;
+const cryptoRange = Array.from(new Array(9), (x, i) => i + 16);;
+const equityRange = Array.from(new Array(11), (x, i) => i + 29);;
 
 function GetColumnIndex(letter) {
     return letter.charCodeAt(0) - 97;
