@@ -1,0 +1,1474 @@
+[
+    {
+        "id": "4f7f019f83c875955463e72278a507dc",
+        "has_outrights": true,
+        "sport_key": "americanfootball_nfl_super_bowl_winner",
+        "sport_title": "NFL Super Bowl Winner",
+        "commence_time": "2022-02-13T23:30:00Z",
+        "home_team": null,
+        "away_team": null,
+        "bookmakers": [
+            {
+                "key": "foxbet",
+                "title": "FOX Bet",
+                "last_update": "2021-12-30T23:52:16Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 400
+                            },
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 600
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 800
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 850
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 900
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1500
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1700
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 1800
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2200
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2500
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 3300
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 4500
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 5500
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 6600
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 20000
+                            },
+                            {
+                                "name": "Denver Broncos",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Washington Football Team",
+                                "price": 50000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "fanduel",
+                "title": "FanDuel",
+                "last_update": "2021-12-30T23:47:37Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 450
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 700
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 850
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 900
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 950
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1700
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1800
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 1800
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2000
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2600
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 3100
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 5500
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 5500
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 7000
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 10000
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 10000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 14000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 16000
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 18000
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 28000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betmgm",
+                "title": "BetMGM",
+                "last_update": "2021-12-30T23:46:42Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 450
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 600
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 850
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 900
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1800
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1800
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2000
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 2000
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2500
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 3500
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 6600
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 10000
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 15000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 25000
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 30000
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 50000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "sugarhouse",
+                "title": "SugarHouse",
+                "last_update": "2021-12-30T23:52:17Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 425
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 650
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 850
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 900
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1500
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 1700
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1800
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2500
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2800
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 4000
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 15000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 17500
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 17500
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Washington Football Team",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Denver Broncos",
+                                "price": 75000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "unibet",
+                "title": "Unibet",
+                "last_update": "2021-12-30T23:51:28Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 425
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 650
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 850
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 900
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1500
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 1700
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1800
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2500
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2800
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 4000
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 15000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 17500
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 17500
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Washington Football Team",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Denver Broncos",
+                                "price": 75000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betrivers",
+                "title": "BetRivers",
+                "last_update": "2021-12-30T23:45:44Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 425
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 650
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 850
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 900
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1500
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 1700
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1800
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2500
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2800
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 4000
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 15000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 17500
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 17500
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Washington Football Team",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Denver Broncos",
+                                "price": 75000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "bovada",
+                "title": "Bovada",
+                "last_update": "2021-12-30T23:52:33Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 400
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 750
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 800
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 900
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1400
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1600
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2000
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 2000
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2800
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 3300
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 6500
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 8000
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 15000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 20000
+                            },
+                            {
+                                "name": "Denver Broncos",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Washington Football Team",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 50000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "intertops",
+                "title": "Intertops",
+                "last_update": "2021-12-30T23:26:56Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 375
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 400
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 650
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 850
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 900
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1400
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1600
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 2000
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2200
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2800
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 3300
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 6600
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 10000
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 10000
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 15000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 20000
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 20000
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Denver Broncos",
+                                "price": 50000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "williamhill_us",
+                "title": "William Hill (US)",
+                "last_update": "2021-12-30T23:52:24Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 450
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 650
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 900
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 900
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1500
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1800
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 2000
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2500
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2800
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 3500
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 7000
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 10000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Denver Broncos",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Washington Football Team",
+                                "price": 75000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "draftkings",
+                "title": "DraftKings",
+                "last_update": "2021-12-30T23:46:57Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 450
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 750
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 850
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 850
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1400
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1600
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 1800
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2200
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2800
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 3500
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 7000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 10000
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 13000
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 13000
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 20000
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Denver Broncos",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Washington Football Team",
+                                "price": 50000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "pointsbetus",
+                "title": "PointsBet (US)",
+                "last_update": "2021-12-30T23:50:50Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 450
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 650
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 800
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 800
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1600
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1600
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 2000
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2200
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2800
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 4000
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 4000
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 5000
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 8000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 10000
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Washington Football Team",
+                                "price": 50000
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "betfair",
+                "title": "Betfair",
+                "last_update": "2021-12-30T23:43:59Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 410
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 460
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 900
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 950
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 950
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 1050
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1700
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 2300
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 2500
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2800
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 3300
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 4500
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 7400
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 9900
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 11900
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 14900
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 14900
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 19900
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 20900
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 24900
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 29900
+                            },
+                            {
+                                "name": "Denver Broncos",
+                                "price": 50900
+                            },
+                            {
+                                "name": "Washington Football Team",
+                                "price": 89900
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 90900
+                            }
+                        ]
+                    },
+                    {
+                        "key": "outrights_lay",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 420
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 470
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 950
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 1050
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 1100
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1900
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 2500
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 2600
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2900
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 3700
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 4700
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 8400
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 12900
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 13900
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 21900
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 34900
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 34900
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 38900
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 99900
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 99900
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "barstool",
+                "title": "Barstool Sportsbook",
+                "last_update": "2021-12-30T23:49:35Z",
+                "markets": [
+                    {
+                        "key": "outrights",
+                        "outcomes": [
+                            {
+                                "name": "Kansas City Chiefs",
+                                "price": 400
+                            },
+                            {
+                                "name": "Green Bay Packers",
+                                "price": 425
+                            },
+                            {
+                                "name": "Tampa Bay Buccaneers",
+                                "price": 650
+                            },
+                            {
+                                "name": "Buffalo Bills",
+                                "price": 850
+                            },
+                            {
+                                "name": "Los Angeles Rams",
+                                "price": 900
+                            },
+                            {
+                                "name": "Dallas Cowboys",
+                                "price": 1000
+                            },
+                            {
+                                "name": "New England Patriots",
+                                "price": 1500
+                            },
+                            {
+                                "name": "Tennessee Titans",
+                                "price": 1700
+                            },
+                            {
+                                "name": "Indianapolis Colts",
+                                "price": 1800
+                            },
+                            {
+                                "name": "Arizona Cardinals",
+                                "price": 2500
+                            },
+                            {
+                                "name": "Cincinnati Bengals",
+                                "price": 2800
+                            },
+                            {
+                                "name": "San Francisco 49ers",
+                                "price": 4000
+                            },
+                            {
+                                "name": "Baltimore Ravens",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Los Angeles Chargers",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Philadelphia Eagles",
+                                "price": 6000
+                            },
+                            {
+                                "name": "Las Vegas Raiders",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Miami Dolphins",
+                                "price": 12500
+                            },
+                            {
+                                "name": "Cleveland Browns",
+                                "price": 15000
+                            },
+                            {
+                                "name": "New Orleans Saints",
+                                "price": 15000
+                            },
+                            {
+                                "name": "Minnesota Vikings",
+                                "price": 17500
+                            },
+                            {
+                                "name": "Pittsburgh Steelers",
+                                "price": 17500
+                            },
+                            {
+                                "name": "Atlanta Falcons",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Washington Football Team",
+                                "price": 50000
+                            },
+                            {
+                                "name": "Denver Broncos",
+                                "price": 75000
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
