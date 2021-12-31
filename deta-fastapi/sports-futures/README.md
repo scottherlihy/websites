@@ -17,4 +17,4 @@ Will be an experiment to gain expertise with FastApi as well as data visualizati
 - Clone the deta micro `deta clone --name sports-futures --project default`
 - Authenticate with deta `deta login`
 - Run `deta deploy`
-- See the service deployed here: `https://6borhd.deta.dev/`
+- See the service deployed here: https://6borhd.deta.dev/
