@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Header from "./components/header/Header";
-import MusicPlayer from "./components/music/MusicPlayer";
+import { MusicProvider, MusicControlsBar, MusicWaveStrip } from "./components/music/MusicPlayer";
 import StocksPanel from "./components/stocks/StocksPanel";
 import LaunchesPanel from "./components/launches/LaunchesPanel";
 import OddsPanel from "./components/nfl/OddsPanel";
@@ -22,28 +22,32 @@ function PanelSkeleton() {
 
 export default function MorningPage() {
   return (
-    <div className={styles.dashboard}>
-      <Suspense>
-        <Header />
-      </Suspense>
+    <MusicProvider>
+      <div className={styles.dashboard}>
+        <MusicControlsBar />
 
-      <MusicPlayer />
-
-      <div className={styles.fullWidth}>
-        <Suspense fallback={<PanelSkeleton />}>
-          <StocksPanel />
+        <Suspense>
+          <Header />
         </Suspense>
+
+        <MusicWaveStrip />
+
+        <div className={styles.fullWidth}>
+          <Suspense fallback={<PanelSkeleton />}>
+            <StocksPanel />
+          </Suspense>
+        </div>
+
+        <div className={styles.grid}>
+          <Suspense fallback={<PanelSkeleton />}>
+            <LaunchesPanel />
+          </Suspense>
+
+          <Suspense fallback={<PanelSkeleton />}>
+            <OddsPanel />
+          </Suspense>
+        </div>
       </div>
-
-      <div className={styles.grid}>
-        <Suspense fallback={<PanelSkeleton />}>
-          <LaunchesPanel />
-        </Suspense>
-
-        <Suspense fallback={<PanelSkeleton />}>
-          <OddsPanel />
-        </Suspense>
-      </div>
-    </div>
+    </MusicProvider>
   );
 }

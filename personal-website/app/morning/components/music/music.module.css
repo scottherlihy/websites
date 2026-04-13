@@ -1,3 +1,10 @@
+.controlsBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+}
+
 .hiddenIframe {
   position: absolute;
   width: 1px;
@@ -24,13 +31,6 @@
   pointer-events: none;
 }
 
-.inlineControls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  z-index: 1;
-  width: 100%;
-}
 
 .trackInfo {
   display: flex;
