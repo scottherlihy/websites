@@ -1,0 +1,170 @@
+/* Range Toggle */
+.toggleRow {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.toggleBtn {
+  background: var(--morning-surface);
+  border: 1px solid var(--morning-border);
+  border-radius: 6px;
+  color: var(--morning-text-secondary);
+  font-family: var(--morning-font);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.toggleBtn:hover {
+  color: var(--morning-text-primary);
+  border-color: hsla(var(--morning-hue) 80% 50% / 0.25);
+}
+
+.toggleActive {
+  background: hsla(var(--morning-hue) 80% 50% / 0.1);
+  border-color: var(--morning-accent);
+  color: var(--morning-accent);
+}
+
+.stocksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Card Flip */
+.flipContainer {
+  perspective: 800px;
+  cursor: pointer;
+}
+
+.flipInner {
+  position: relative;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+.flipped .flipInner {
+  transform: rotateY(180deg);
+}
+
+.flipFront,
+.flipBack {
+  backface-visibility: hidden;
+}
+
+.flipBack {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  overflow: hidden;
+}
+
+.card {
+  background: var(--morning-surface);
+  border: 1px solid var(--morning-border);
+  border-radius: 10px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 0.2s ease;
+  height: 100%;
+}
+
+.card:hover {
+  border-color: hsla(var(--morning-hue) 80% 50% / 0.25);
+}
+
+.cardBack {
+  composes: card;
+  gap: 0.2rem;
+  padding: 0.6rem 0.75rem;
+}
+
+/* Fundamentals (back of card) */
+.fundamentals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.fundRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.fundLabel {
+  font-size: 0.6rem;
+  color: var(--morning-text-secondary);
+}
+
+.fundValue {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--morning-text-primary);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.symbol {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--morning-text-primary);
+  letter-spacing: 0.03em;
+}
+
+.price {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--morning-text-primary);
+}
+
+.change {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+.positive {
+  color: var(--morning-accent-green);
+}
+
+.negative {
+  color: var(--morning-accent-red);
+}
+
+.chart {
+  width: 100%;
+  height: 50px;
+}
+
+.unavailable {
+  font-size: 0.75rem;
+  color: var(--morning-text-muted);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+@media (max-width: 700px) {
+  .stocksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .stocksGrid {
+    grid-template-columns: 1fr;
+  }
+}

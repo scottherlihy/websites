@@ -1,0 +1,50 @@
+.theme {
+  --morning-bg: hsl(var(--morning-hue) 30% 5%);
+  --morning-surface: rgba(255, 255, 255, 0.04);
+  --morning-surface-hover: rgba(255, 255, 255, 0.07);
+  --morning-border: hsla(var(--morning-hue) 80% 50% / 0.15);
+  --morning-glow: 0 0 20px hsla(var(--morning-hue) 80% 50% / 0.08);
+  --morning-text-primary: hsl(var(--morning-hue) 15% 90%);
+  --morning-text-secondary: hsl(var(--morning-hue) 20% 55%);
+  --morning-text-muted: hsl(var(--morning-hue) 20% 35%);
+  --morning-accent: hsl(var(--morning-hue) 100% 45%);
+  --morning-accent-green: #00ff88;
+  --morning-accent-red: #ff4466;
+  --morning-accent-orange: #ffaa33;
+  --morning-font: var(--font-space-grotesk), -apple-system, sans-serif;
+
+  font-family: var(--morning-font);
+  background: var(--morning-bg);
+  color: var(--morning-text-primary);
+  min-height: 100vh;
+}
+
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}

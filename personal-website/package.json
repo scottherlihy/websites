@@ -1,5 +1,5 @@
 {
-  "name": "learn-starter",
+  "name": "personal-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,12 +8,14 @@
     "start": "next start"
   },
   "dependencies": {
-    "googleapis": "72.0.0",
-    "highcharts": "9.0.1",
-    "highcharts-drilldown": "0.1.7",
-    "highcharts-react-official": "3.0.0",
-    "next": "^10.0.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "next": "16.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
   }
 }
