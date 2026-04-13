@@ -1,10 +1,9 @@
 .header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   padding: 1rem 0;
-  border-bottom: 1px solid var(--morning-border);
-  margin-bottom: 0.5rem;
   gap: 1.5rem;
 }
 

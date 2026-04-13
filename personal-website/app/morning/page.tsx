@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import Header from "./components/header/Header";
+import MusicPlayer from "./components/music/MusicPlayer";
 import StocksPanel from "./components/stocks/StocksPanel";
 import LaunchesPanel from "./components/launches/LaunchesPanel";
 import OddsPanel from "./components/nfl/OddsPanel";
@@ -25,6 +26,8 @@ export default function MorningPage() {
       <Suspense>
         <Header />
       </Suspense>
+
+      <MusicPlayer />
 
       <div className={styles.fullWidth}>
         <Suspense fallback={<PanelSkeleton />}>

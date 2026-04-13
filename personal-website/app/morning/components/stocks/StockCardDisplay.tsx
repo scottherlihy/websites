@@ -74,7 +74,7 @@ export default function StockCardDisplay({
                 {changePercent.toFixed(2)}%)
               </span>
             </div>
-            <StockChart prices={prices} isPositive={isPositive} />
+            <StockChart prices={prices} timestamps={candle?.t} isPositive={isPositive} />
           </div>
         </div>
 
