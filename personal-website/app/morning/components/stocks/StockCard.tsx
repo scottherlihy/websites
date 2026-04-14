@@ -1,123 +1,167 @@
-import { finnhubQuoteUrl, finnhubCandleUrl } from "../../../lib/constants";
+import { yahooChartUrl, yahooSummaryUrl } from "../../../lib/constants";
 import type { StockRange } from "../../../lib/constants";
 import type { StockQuote, StockCandle, StockFundamentals } from "../../../lib/types";
 import StockCardDisplay from "./StockCardDisplay";
-
-function mockCandle(basePrice: number, points: number): StockCandle {
-  const prices: number[] = [];
-  let price = basePrice * (0.85 + Math.random() * 0.15);
-  for (let i = 0; i < points; i++) {
-    price += (Math.random() - 0.48) * basePrice * 0.03;
-    price = Math.max(price, basePrice * 0.7);
-    prices.push(price);
-  }
-  const now = Math.floor(Date.now() / 1000);
-  const interval = Math.floor((30 * 86400) / points);
-  return {
-    c: prices,
-    h: prices.map((p) => p * 1.02),
-    l: prices.map((p) => p * 0.98),
-    o: prices.map((p) => p * (0.99 + Math.random() * 0.02)),
-    t: prices.map((_, i) => now - (points - i) * interval),
-    v: prices.map(() => Math.floor(Math.random() * 5000000)),
-    s: "ok",
-  };
-}
-
-const MOCK_DATA: Record<string, { price: number; fundamentals: StockFundamentals }> = {
-  RKLB: { price: 28.5, fundamentals: { marketCap: 13400, revenueTTM: 436, revenueLastQ: 125, nextEarningsDate: "2026-05-13" } },
-  ASTS: { price: 22.3, fundamentals: { marketCap: 7200, revenueTTM: 2, revenueLastQ: 0.5, nextEarningsDate: "2026-05-08" } },
-  NBIS: { price: 42.1, fundamentals: { marketCap: 8500, revenueTTM: 310, revenueLastQ: 92, nextEarningsDate: "2026-05-06" } },
-  KRKNF: { price: 12.8, fundamentals: { marketCap: 2100, revenueTTM: 1800, revenueLastQ: 480, nextEarningsDate: "2026-05-15" } },
-  RIVN: { price: 14.6, fundamentals: { marketCap: 15200, revenueTTM: 4800, revenueLastQ: 1300, nextEarningsDate: "2026-05-07" } },
-  AUR: { price: 7.2, fundamentals: { marketCap: 5800, revenueTTM: 0, revenueLastQ: 0, nextEarningsDate: "2026-05-12" } },
-};
+import styles from "./stocks.module.css";
 
 const RANGES: StockRange[] = ["1D", "1M", "1Y"];
-const MOCK_POINTS: Record<StockRange, number> = { "1D": 78, "1M": 30, "1Y": 52 };
+const UA = { "User-Agent": "Mozilla/5.0" };
+
+// Yahoo requires a crumb + cookies for quoteSummary
+let cachedCrumb: { crumb: string; cookie: string; expires: number } | null = null;
+
+async function getYahooCrumb(): Promise<{ crumb: string; cookie: string } | null> {
+  if (cachedCrumb && Date.now() < cachedCrumb.expires) {
+    return cachedCrumb;
+  }
+  try {
+    const initRes = await fetch("https://fc.yahoo.com", { headers: UA, redirect: "manual" });
+    const cookies = initRes.headers.getSetCookie?.() ?? [];
+    const cookie = cookies.map((c) => c.split(";")[0]).join("; ");
+
+    const crumbRes = await fetch("https://query2.finance.yahoo.com/v1/test/getcrumb", {
+      headers: { ...UA, Cookie: cookie },
+    });
+    if (!crumbRes.ok) return null;
+    const crumb = await crumbRes.text();
+
+    cachedCrumb = { crumb, cookie, expires: Date.now() + 10 * 60 * 1000 }; // 10 min
+    return cachedCrumb;
+  } catch {
+    return null;
+  }
+}
+
+async function fetchYahooChart(symbol: string, range: StockRange): Promise<StockCandle | null> {
+  try {
+    const res = await fetch(yahooChartUrl(symbol, range), {
+      next: { revalidate: 300 },
+      headers: UA,
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const result = data.chart?.result?.[0];
+    if (!result) return null;
+
+    const quote = result.indicators?.quote?.[0];
+    const timestamps = result.timestamp;
+    if (!quote || !timestamps) return null;
+
+    const closes: number[] = [];
+    const highs: number[] = [];
+    const lows: number[] = [];
+    const opens: number[] = [];
+    const times: number[] = [];
+    const vols: number[] = [];
+
+    for (let i = 0; i < timestamps.length; i++) {
+      if (quote.close[i] != null) {
+        closes.push(quote.close[i]);
+        highs.push(quote.high?.[i] ?? quote.close[i]);
+        lows.push(quote.low?.[i] ?? quote.close[i]);
+        opens.push(quote.open?.[i] ?? quote.close[i]);
+        times.push(timestamps[i]);
+        vols.push(quote.volume?.[i] ?? 0);
+      }
+    }
+
+    if (closes.length < 2) return null;
+    return { c: closes, h: highs, l: lows, o: opens, t: times, v: vols, s: "ok" };
+  } catch {
+    return null;
+  }
+}
+
+async function fetchYahooFundamentals(
+  symbol: string,
+  auth: { crumb: string; cookie: string }
+): Promise<{ quote: StockQuote; fundamentals: StockFundamentals } | null> {
+  try {
+    const res = await fetch(yahooSummaryUrl(symbol, auth.crumb), {
+      next: { revalidate: 300 },
+      headers: { ...UA, Cookie: auth.cookie },
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const result = data.quoteSummary?.result?.[0];
+    if (!result) return null;
+
+    const price = result.price ?? {};
+    const fd = result.financialData ?? {};
+    const ce = result.calendarEvents ?? {};
+
+    const current = price.regularMarketPrice?.raw ?? 0;
+    const prevClose = price.regularMarketPreviousClose?.raw ?? current;
+    const change = price.regularMarketChange?.raw ?? current - prevClose;
+    const changePct = price.regularMarketChangePercent?.raw
+      ? price.regularMarketChangePercent.raw * 100
+      : prevClose ? ((change / prevClose) * 100) : 0;
+
+    const quote: StockQuote = {
+      c: current,
+      d: change,
+      dp: changePct,
+      h: price.regularMarketDayHigh?.raw ?? current,
+      l: price.regularMarketDayLow?.raw ?? current,
+      o: price.regularMarketOpen?.raw ?? current,
+      pc: prevClose,
+    };
+
+    const marketCap = price.marketCap?.raw ?? 0;
+    const totalRevenue = fd.totalRevenue?.raw ?? 0;
+    const revenueGrowth = fd.revenueGrowth?.raw ?? 0;
+    const earningsDates = ce.earnings?.earningsDate ?? [];
+    const nextEarnings = earningsDates[0]?.fmt ?? "TBD";
+
+    const fundamentals: StockFundamentals = {
+      marketCap: marketCap / 1e6, // convert to millions
+      revenueTTM: totalRevenue / 1e6,
+      revenueLastQ: revenueGrowth, // store growth % for now
+      nextEarningsDate: nextEarnings,
+    };
+
+    return { quote, fundamentals };
+  } catch {
+    return null;
+  }
+}
 
 interface StockCardProps {
   symbol: string;
 }
 
 export default async function StockCard({ symbol }: StockCardProps) {
-  let quote: StockQuote | null = null;
-  let fundamentals: StockFundamentals | null = null;
-  const candles: Record<string, StockCandle | null> = { "1D": null, "1M": null, "1Y": null };
+  const auth = await getYahooCrumb();
 
-  if (process.env.FINNHUB_API_KEY) {
-    try {
-      const [quoteRes, metricsRes, earningsRes, ...candleResults] = await Promise.all([
-        fetch(finnhubQuoteUrl(symbol), { next: { revalidate: 300 } }),
-        fetch(`https://finnhub.io/api/v1/stock/metric?symbol=${symbol}&metric=all&token=${process.env.FINNHUB_API_KEY}`, { next: { revalidate: 3600 } }),
-        fetch(`https://finnhub.io/api/v1/calendar/earnings?symbol=${symbol}&token=${process.env.FINNHUB_API_KEY}`, { next: { revalidate: 3600 } }),
-        ...RANGES.map((r) =>
-          fetch(finnhubCandleUrl(symbol, r), { next: { revalidate: 300 } })
-        ),
-      ]);
+  // Fetch fundamentals + all chart ranges in parallel
+  const [fundResult, ...chartResults] = await Promise.all([
+    auth ? fetchYahooFundamentals(symbol, auth) : Promise.resolve(null),
+    ...RANGES.map((r) => fetchYahooChart(symbol, r)),
+  ]);
 
-      if (quoteRes.ok) {
-        const q = await quoteRes.json();
-        if (q.c && q.c > 0) quote = q;
-      }
-
-      if (metricsRes.ok && earningsRes.ok) {
-        const m = await metricsRes.json();
-        const e = await earningsRes.json();
-        const metric = m.metric ?? {};
-        const nextEarning = e.earningsCalendar?.[0];
-        fundamentals = {
-          marketCap: metric.marketCapitalization ?? 0,
-          revenueTTM: metric.revenuePerShareTTM ? metric.revenuePerShareTTM * (metric.shareOutstanding ?? 0) : 0,
-          revenueLastQ: metric.quarterlyRevenueGrowthYOY ?? 0,
-          nextEarningsDate: nextEarning?.date ?? "TBD",
-        };
-      }
-
-      for (let i = 0; i < RANGES.length; i++) {
-        if (candleResults[i].ok) {
-          const c = await candleResults[i].json();
-          if (c.s === "ok") candles[RANGES[i]] = c;
-        }
-      }
-    } catch {
-      // Fall through to mock data
-    }
+  if (!fundResult?.quote) {
+    return (
+      <div className={styles.card}>
+        <div className={styles.cardHeader}>
+          <span className={styles.symbol}>{symbol}</span>
+        </div>
+        <p className={styles.unavailable}>Couldn&apos;t load stock data</p>
+      </div>
+    );
   }
 
-  // Mock fallbacks
-  const mock = MOCK_DATA[symbol] ?? { price: 10, fundamentals: { marketCap: 0, revenueTTM: 0, revenueLastQ: 0, nextEarningsDate: "TBD" } };
-
-  if (!quote) {
-    const base = mock.price;
-    const change = (Math.random() - 0.45) * base * 0.05;
-    quote = {
-      c: base,
-      d: change,
-      dp: (change / base) * 100,
-      h: base * 1.02,
-      l: base * 0.98,
-      o: base - change * 0.5,
-      pc: base - change,
-    };
-  }
-
-  if (!fundamentals) {
-    fundamentals = mock.fundamentals;
-  }
-
-  for (const r of RANGES) {
-    if (!candles[r]) {
-      candles[r] = mockCandle(quote.c, MOCK_POINTS[r]);
-    }
+  const candles: Record<string, StockCandle> = {};
+  for (let i = 0; i < RANGES.length; i++) {
+    const c = chartResults[i];
+    if (c) candles[RANGES[i]] = c;
   }
 
   return (
     <StockCardDisplay
       symbol={symbol}
-      quote={quote}
-      fundamentals={fundamentals}
-      candles={candles as Record<string, StockCandle>}
+      quote={fundResult.quote}
+      fundamentals={fundResult.fundamentals}
+      candles={candles}
     />
   );
 }

@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "thespacedevs-prod.nyc3.digitaloceanspaces.com",
+      },
+      {
+        protocol: "https",
         hostname: "a.espncdn.com",
       },
     ],

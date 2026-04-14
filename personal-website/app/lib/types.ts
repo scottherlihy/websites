@@ -26,16 +26,21 @@ export interface StockCandle {
   s: string;    // status ("ok" or "no_data")
 }
 
-// Space Devs Launch Library 2 (mode=list returns flat fields)
+// Space Devs Launch Library 2 (mode=detailed returns nested objects)
 export interface Launch {
   id: string;
   name: string;
   net: string;        // ISO datetime
   status: { id: number; name: string };
-  lsp_name: string;   // launch service provider
-  mission: string;    // mission name (flat string in list mode)
-  pad: string;        // pad name (flat string in list mode)
-  location: string;   // location name (flat string in list mode)
+  launch_service_provider: {
+    name: string;
+    logo_url: string | null;
+  };
+  mission: { name: string; description: string } | null;
+  pad: {
+    name: string;
+    location: { name: string };
+  };
   image: string | null;
 }
 

@@ -7,25 +7,23 @@ export const NFL_SEASON_DATE = new Date("2026-09-10T20:20:00-04:00");  // Kickof
 
 export const WEATHER_URL = `https://api.open-meteo.com/v1/forecast?latitude=${AMSTERDAM.lat}&longitude=${AMSTERDAM.lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code&daily=sunrise,sunset&timezone=Europe/Amsterdam&forecast_days=1`;
 
-export const LAUNCHES_URL = "https://ll.thespacedevs.com/2.0.0/launch/upcoming/?limit=6&mode=list";
-
-export function finnhubQuoteUrl(symbol: string) {
-  return `https://finnhub.io/api/v1/stock/quote?symbol=${symbol}&token=${process.env.FINNHUB_API_KEY}`;
-}
+export const LAUNCHES_URL = "https://ll.thespacedevs.com/2.0.0/launch/upcoming/?limit=6&mode=detailed";
 
 export type StockRange = "1D" | "1M" | "1Y";
 
-const RANGE_CONFIG: Record<StockRange, { resolution: string; seconds: number }> = {
-  "1D": { resolution: "5", seconds: 1 * 24 * 60 * 60 },
-  "1M": { resolution: "D", seconds: 30 * 24 * 60 * 60 },
-  "1Y": { resolution: "W", seconds: 365 * 24 * 60 * 60 },
+const YAHOO_RANGE: Record<StockRange, { range: string; interval: string }> = {
+  "1D": { range: "1d", interval: "5m" },
+  "1M": { range: "1mo", interval: "1d" },
+  "1Y": { range: "1y", interval: "1wk" },
 };
 
-export function finnhubCandleUrl(symbol: string, range: StockRange = "1M") {
-  const { resolution, seconds } = RANGE_CONFIG[range];
-  const now = Math.floor(Date.now() / 1000);
-  const from = now - seconds;
-  return `https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=${resolution}&from=${from}&to=${now}&token=${process.env.FINNHUB_API_KEY}`;
+export function yahooChartUrl(symbol: string, range: StockRange = "1M") {
+  const { range: r, interval } = YAHOO_RANGE[range];
+  return `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=${r}&interval=${interval}`;
+}
+
+export function yahooSummaryUrl(symbol: string, crumb: string) {
+  return `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${symbol}?modules=price,financialData,calendarEvents&crumb=${crumb}`;
 }
 
 export function oddsUrl() {

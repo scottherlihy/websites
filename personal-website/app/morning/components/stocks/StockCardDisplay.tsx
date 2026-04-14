@@ -96,9 +96,11 @@ export default function StockCardDisplay({
                 </span>
               </div>
               <div className={styles.fundRow}>
-                <span className={styles.fundLabel}>Revenue Last Q</span>
+                <span className={styles.fundLabel}>Rev Growth YoY</span>
                 <span className={styles.fundValue}>
-                  {formatRevenue(fundamentals.revenueLastQ)}
+                  {fundamentals.revenueLastQ
+                    ? `${(fundamentals.revenueLastQ * 100).toFixed(1)}%`
+                    : "N/A"}
                 </span>
               </div>
               <div className={styles.fundRow}>
