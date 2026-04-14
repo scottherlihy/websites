@@ -52,7 +52,7 @@ const PROJECTS = [
     description: "A foray into robotics to experiment with planning algorithms while building walls with a robot fleet.",
     preview: "",
     tech: ["Rust", "TypeScript"],
-    href: "https://robot-demo-mm5q8621p-scottherlihys-projects.vercel.app/",
+    href: "https://robot-demo-wine.vercel.app/",
     previewImage: null,
     year: "2026",
   },
