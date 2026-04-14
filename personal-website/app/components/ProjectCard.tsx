@@ -68,11 +68,14 @@ export default function ProjectCard({ project }: { project: Project }) {
           ) : project.previewImage ? (
             <img src={project.previewImage} alt="" className="w-full h-full object-cover" />
           ) : null}
-          <button
-            className="absolute bottom-2 right-2 bg-black/50 text-white text-[0.55rem] font-medium px-2 py-1 rounded backdrop-blur-sm hover:bg-black/70 transition-colors pointer-events-none"
-          >
-            Expand
-          </button>
+          <div className="absolute bottom-2 right-2 pointer-events-none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-70">
+              <polyline points="15 3 21 3 21 9" />
+              <polyline points="9 21 3 21 3 15" />
+              <line x1="21" y1="3" x2="14" y2="10" />
+              <line x1="3" y1="21" x2="10" y2="14" />
+            </svg>
+          </div>
         </div>
       )}
 

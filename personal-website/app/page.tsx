@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ProjectCard from "./components/ProjectCard";
+import PageAnimations from "./components/PageAnimations";
 
 const PROJECTS = [
   {
@@ -68,6 +69,8 @@ export default function Home() {
   return (
     <div className="max-w-[720px] mx-auto px-6 py-12 flex flex-col gap-12">
       {/* Hero */}
+      <PageAnimations />
+
       <header className="flex items-center gap-6 max-sm:flex-col max-sm:text-center">
         <Image
           priority
