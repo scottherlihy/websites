@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+.workout-scope {
+  /* Dark-first: these ARE the default (no .dark class needed) */
+  --background: oklch(0.1 0.01 270);
+  --foreground: oklch(0.93 0 0);
+  --card: oklch(0.15 0.01 270);
+  --card-foreground: oklch(0.93 0 0);
+  --popover: oklch(0.15 0.01 270);
+  --popover-foreground: oklch(0.93 0 0);
+  --primary: oklch(0.93 0 0);
+  --primary-foreground: oklch(0.1 0.01 270);
+  --secondary: oklch(0.2 0.01 270);
+  --secondary-foreground: oklch(0.93 0 0);
+  --muted: oklch(0.2 0.01 270);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.2 0.01 270);
+  --accent-foreground: oklch(0.93 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.93 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.6 0.15 260);
+  --radius: 0.625rem;
+
+  /* Bucket colors */
+  --bucket-zone2: #14b8a6;
+  --bucket-vo2max: #f97316;
+  --bucket-push: #3b82f6;
+  --bucket-pull: #a855f7;
+  --bucket-lower: #f59e0b;
+  --bucket-power: #ef4444;
+  --bucket-stability: #22c55e;
+  --bucket-rest: #6b7280;
+
+  /* Chart colors mapped to bucket palette */
+  --chart-1: var(--bucket-zone2);
+  --chart-2: var(--bucket-vo2max);
+  --chart-3: var(--bucket-push);
+  --chart-4: var(--bucket-pull);
+  --chart-5: var(--bucket-lower);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-bucket-zone2: var(--bucket-zone2);
+  --color-bucket-vo2max: var(--bucket-vo2max);
+  --color-bucket-push: var(--bucket-push);
+  --color-bucket-pull: var(--bucket-pull);
+  --color-bucket-lower: var(--bucket-lower);
+  --color-bucket-power: var(--bucket-power);
+  --color-bucket-stability: var(--bucket-stability);
+  --color-bucket-rest: var(--bucket-rest);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+}
+
+@layer base {
+  .workout-scope {
+    @apply bg-background text-foreground font-sans;
+  }
+  .workout-scope * {
+    @apply border-border outline-ring/50;
+  }
+}

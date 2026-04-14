@@ -5,9 +5,9 @@ export const AMSTERDAM = { lat: 52.3676, lon: 4.9041 };
 export const NFL_DRAFT_DATE = new Date("2026-04-23T20:00:00-04:00");   // 8pm ET
 export const NFL_SEASON_DATE = new Date("2026-09-10T20:20:00-04:00");  // Kickoff ~8:20pm ET
 
-export const WEATHER_URL = `https://api.open-meteo.com/v1/forecast?latitude=${AMSTERDAM.lat}&longitude=${AMSTERDAM.lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code&daily=sunrise,sunset&timezone=Europe/Amsterdam&forecast_days=1`;
+export const WEATHER_URL = `https://api.open-meteo.com/v1/forecast?latitude=${AMSTERDAM.lat}&longitude=${AMSTERDAM.lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code,uv_index&daily=temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset,uv_index_max&timezone=Europe/Amsterdam&forecast_days=7`;
 
-export const LAUNCHES_URL = "https://ll.thespacedevs.com/2.0.0/launch/upcoming/?limit=6&mode=detailed";
+export const LAUNCHES_URL = "https://ll.thespacedevs.com/2.0.0/launch/upcoming/?limit=20&mode=detailed";
 
 export type StockRange = "1D" | "1M" | "1Y";
 
@@ -71,16 +71,3 @@ export const NFL_TEAM_LOGOS: Record<string, string> = {
 
 export const NFL_SHIELD_URL = "https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png";
 
-// Map WMO weather codes to descriptions + emoji
-export function weatherCodeToDisplay(code: number): { description: string; icon: string } {
-  if (code === 0) return { description: "Clear sky", icon: "☀️" };
-  if (code <= 3) return { description: "Partly cloudy", icon: "⛅" };
-  if (code <= 49) return { description: "Foggy", icon: "🌫️" };
-  if (code <= 59) return { description: "Drizzle", icon: "🌦️" };
-  if (code <= 69) return { description: "Rain", icon: "🌧️" };
-  if (code <= 79) return { description: "Snow", icon: "❄️" };
-  if (code <= 82) return { description: "Rain showers", icon: "🌧️" };
-  if (code <= 86) return { description: "Snow showers", icon: "🌨️" };
-  if (code <= 99) return { description: "Thunderstorm", icon: "⛈️" };
-  return { description: "Unknown", icon: "🌡️" };
-}

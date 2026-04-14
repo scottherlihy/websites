@@ -14,6 +14,13 @@ export interface StockQuote {
   l: number;  // low
   o: number;  // open
   pc: number; // previous close
+  marketState: string; // "PRE" | "REGULAR" | "POST" | "CLOSED"
+  preMarketPrice: number | null;
+  preMarketChange: number | null;
+  preMarketChangePercent: number | null;
+  postMarketPrice: number | null;
+  postMarketChange: number | null;
+  postMarketChangePercent: number | null;
 }
 
 export interface StockCandle {
@@ -30,18 +37,44 @@ export interface StockCandle {
 export interface Launch {
   id: string;
   name: string;
-  net: string;        // ISO datetime
+  net: string;
   status: { id: number; name: string };
+  webcast_live: boolean;
   launch_service_provider: {
     name: string;
     logo_url: string | null;
+    country_code: string;
+    successful_launches: number;
+    failed_launches: number;
+    total_launch_count: number;
   };
-  mission: { name: string; description: string } | null;
+  rocket: {
+    configuration: {
+      name: string;
+      full_name: string;
+      description: string;
+      image_url: string | null;
+      length: number | null;
+      diameter: number | null;
+      launch_mass: number | null;
+      leo_capacity: number | null;
+      to_thrust: number | null;
+      successful_launches: number;
+      total_launch_count: number;
+    };
+  };
+  mission: {
+    name: string;
+    description: string;
+    type: string;
+    orbit: { name: string; abbrev: string } | null;
+  } | null;
   pad: {
     name: string;
     location: { name: string };
   };
   image: string | null;
+  vidURLs: Array<{ url: string; title: string }>;
 }
 
 export interface LaunchResponse {
@@ -86,13 +119,23 @@ export interface WeatherData {
   weatherCode: number;
   windSpeed: number;
   humidity: number;
-  sunrise: string;    // ISO time
-  sunset: string;     // ISO time
+  sunrise: string;
+  sunset: string;
   hourly: HourlyWeather[];
+  daily: DailyWeather[];
 }
 
 export interface HourlyWeather {
-  time: string;       // ISO time
+  time: string;
   temperature: number;
   weatherCode: number;
+  uvIndex: number;
+}
+
+export interface DailyWeather {
+  date: string;
+  high: number;
+  low: number;
+  weatherCode: number;
+  uvIndexMax: number;
 }

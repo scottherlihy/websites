@@ -1,29 +1,14 @@
 import { Suspense } from "react";
-import Header from "./components/header/Header";
-import { MusicProvider, MusicControlsBar, MusicWaveStrip } from "./components/music/MusicPlayer";
-import StocksPanel from "./components/stocks/StocksPanel";
-import LaunchesPanel from "./components/launches/LaunchesPanel";
-import OddsPanel from "./components/nfl/OddsPanel";
-import styles from "./morning.module.css";
-
-function PanelSkeleton() {
-  return (
-    <div
-      style={{
-        background: "var(--morning-surface)",
-        border: "1px solid var(--morning-border)",
-        borderRadius: 12,
-        padding: "1.25rem",
-        minHeight: 150,
-      }}
-    />
-  );
-}
+import Header from "./Header";
+import StocksSection from "./StocksSection";
+import LaunchesSection from "./LaunchesSection";
+import OddsSection from "./OddsSection";
+import { MusicProvider, MusicControlsBar, MusicWaveStrip } from "./MusicPlayerTw";
 
 export default function MorningPage() {
   return (
     <MusicProvider>
-      <div className={styles.dashboard}>
+      <div className="max-w-[1400px] mx-auto px-6 py-8 flex flex-col gap-8">
         <MusicControlsBar />
 
         <Suspense>
@@ -32,19 +17,17 @@ export default function MorningPage() {
 
         <MusicWaveStrip />
 
-        <div className={styles.fullWidth}>
-          <Suspense fallback={<PanelSkeleton />}>
-            <StocksPanel />
-          </Suspense>
-        </div>
+        <Suspense fallback={<div className="h-40 rounded-xl bg-[#121826] animate-pulse" />}>
+          <StocksSection />
+        </Suspense>
 
-        <div className={styles.grid}>
-          <Suspense fallback={<PanelSkeleton />}>
-            <LaunchesPanel />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <Suspense fallback={<div className="h-60 rounded-xl bg-[#121826] animate-pulse" />}>
+            <LaunchesSection />
           </Suspense>
 
-          <Suspense fallback={<PanelSkeleton />}>
-            <OddsPanel />
+          <Suspense fallback={<div className="h-60 rounded-xl bg-[#121826] animate-pulse" />}>
+            <OddsSection />
           </Suspense>
         </div>
       </div>

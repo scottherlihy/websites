@@ -1,0 +1,2019 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "Evidence-based exercise bank for longevity-optimized training. Each exercise carries internal metadata for workout generation. Sourced from WHO/ACSM guidelines, Attia Outlive framework, Galpin protocols, and meta-analytic evidence.",
+    "schema": {
+      "id": "Unique identifier",
+      "name": "Display name",
+      "bucket": "Primary weekly goal bucket(s) this exercise fills",
+      "movement_pattern": "squat | hinge | horizontal_push | vertical_push | horizontal_pull | vertical_pull | carry | rotation | locomotion | core_stabilization",
+      "training_pillar": "strength | zone2_cardio | vo2max_interval | stability_mobility | power",
+      "fiber_type_bias": "slow_twitch | fast_twitch | mixed",
+      "compound_isolation": "compound | isolation",
+      "bilateral_unilateral": "bilateral | unilateral",
+      "primary_muscles": "Array of primary muscle groups",
+      "secondary_muscles": "Array of secondary muscle groups",
+      "equipment": "Array of equipment options (first = preferred)",
+      "progression_chain": "Array from beginner → advanced. Position of this exercise indicated by difficulty_tier",
+      "tracking_unit": "weight_reps | duration | distance | hr_zone | weight_duration",
+      "default_prescription": {
+        "schedule_a": "Heavy phase (months 1, 3) — lower reps, heavier load",
+        "schedule_b": "Hypertrophy phase (months 2, 4) — higher reps, moderate load",
+        "rpe": "Target RPE for working sets"
+      },
+      "joint_stress": "Map of joint → low/moderate/high",
+      "longevity_benchmarks": "Which functional targets this exercise supports",
+      "difficulty_tier": "beginner | intermediate | advanced",
+      "implicit_core": "Boolean — does this exercise engage core as a stabilizer",
+      "notes": "Programming notes, cues, or safety considerations"
+    }
+  },
+
+  "exercises": [
+
+    {
+      "id": "sq_goblet",
+      "name": "Goblet Squat",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "squat",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes"],
+      "secondary_muscles": ["adductors", "core", "upper_back"],
+      "equipment": ["dumbbell", "kettlebell"],
+      "progression_chain": ["sq_bodyweight", "sq_goblet", "sq_barbell_back", "sq_barbell_front"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8", "rest_sec": 150 },
+        "schedule_b": { "sets": 3, "reps": "10-12", "rest_sec": 90 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "knee": "moderate", "hip": "moderate", "spine": "low" },
+      "longevity_benchmarks": ["sitting_rising_test", "bone_density", "squat_bw_ratio"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Entry point for squat pattern. Hold dumbbell/KB at chest. Focus on depth and upright torso. Teaches squat mechanics safely before barbell loading."
+    },
+
+    {
+      "id": "sq_bodyweight",
+      "name": "Bodyweight Squat",
+      "bucket": ["strength_lower", "stability_mobility"],
+      "movement_pattern": "squat",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes"],
+      "secondary_muscles": ["adductors", "core"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["sq_bodyweight", "sq_goblet", "sq_barbell_back", "sq_barbell_front"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "10-15", "rest_sec": 60 },
+        "schedule_b": { "sets": 2, "reps": "15-20", "rest_sec": 60 },
+        "rpe": "5-6"
+      },
+      "joint_stress": { "knee": "low", "hip": "low", "spine": "low" },
+      "longevity_benchmarks": ["sitting_rising_test"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Foundation pattern. Use in warmups or for complete beginners. Focus on full depth, controlled tempo."
+    },
+
+    {
+      "id": "sq_barbell_back",
+      "name": "Barbell Back Squat",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "squat",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes"],
+      "secondary_muscles": ["adductors", "hamstrings", "core", "erectors"],
+      "equipment": ["barbell"],
+      "progression_chain": ["sq_bodyweight", "sq_goblet", "sq_barbell_back", "sq_barbell_front"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "5-6", "rest_sec": 180 },
+        "schedule_b": { "sets": 3, "reps": "8-10", "rest_sec": 120 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "knee": "high", "hip": "high", "spine": "moderate" },
+      "longevity_benchmarks": ["squat_bw_ratio", "bone_density", "sitting_rising_test"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Primary lower-body strength builder. Target: 0.75×BW → 1.25×BW over 6-12 months. Requires solid goblet squat form first."
+    },
+
+    {
+      "id": "sq_barbell_front",
+      "name": "Barbell Front Squat",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "squat",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes", "core"],
+      "secondary_muscles": ["upper_back", "adductors"],
+      "equipment": ["barbell"],
+      "progression_chain": ["sq_bodyweight", "sq_goblet", "sq_barbell_back", "sq_barbell_front"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "5-6", "rest_sec": 180 },
+        "schedule_b": { "sets": 3, "reps": "8-10", "rest_sec": 120 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "knee": "high", "hip": "moderate", "spine": "moderate", "wrist": "moderate" },
+      "longevity_benchmarks": ["squat_bw_ratio", "bone_density"],
+      "difficulty_tier": "advanced",
+      "implicit_core": true,
+      "notes": "Demands more thoracic mobility and core bracing than back squat. Greater quad emphasis. Good variation for Build/Performance phases."
+    },
+
+    {
+      "id": "dl_romanian_db",
+      "name": "Dumbbell Romanian Deadlift",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "hinge",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["hamstrings", "glutes"],
+      "secondary_muscles": ["erectors", "core", "forearms"],
+      "equipment": ["dumbbell"],
+      "progression_chain": ["dl_romanian_db", "dl_romanian_bb", "dl_conventional", "dl_trap_bar"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8", "rest_sec": 150 },
+        "schedule_b": { "sets": 3, "reps": "10-12", "rest_sec": 90 },
+        "rpe": "7"
+      },
+      "joint_stress": { "hip": "moderate", "spine": "moderate", "knee": "low" },
+      "longevity_benchmarks": ["deadlift_bw_ratio", "grip_strength"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Teaches hip hinge pattern safely. Dumbbells allow natural hand position. Focus on hip push-back, slight knee bend, flat back."
+    },
+
+    {
+      "id": "dl_romanian_bb",
+      "name": "Barbell Romanian Deadlift",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "hinge",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["hamstrings", "glutes"],
+      "secondary_muscles": ["erectors", "core", "forearms", "lats"],
+      "equipment": ["barbell"],
+      "progression_chain": ["dl_romanian_db", "dl_romanian_bb", "dl_conventional", "dl_trap_bar"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8", "rest_sec": 150 },
+        "schedule_b": { "sets": 3, "reps": "8-10", "rest_sec": 120 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "hip": "moderate", "spine": "moderate", "knee": "low" },
+      "longevity_benchmarks": ["deadlift_bw_ratio", "grip_strength"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Barbell allows heavier loading. Excellent hamstring and posterior chain developer."
+    },
+
+    {
+      "id": "dl_conventional",
+      "name": "Conventional Barbell Deadlift",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "hinge",
+      "training_pillar": "strength",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["hamstrings", "glutes", "erectors"],
+      "secondary_muscles": ["quadriceps", "core", "lats", "forearms"],
+      "equipment": ["barbell"],
+      "progression_chain": ["dl_romanian_db", "dl_romanian_bb", "dl_conventional", "dl_trap_bar"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "4-6", "rest_sec": 180 },
+        "schedule_b": { "sets": 3, "reps": "6-8", "rest_sec": 150 },
+        "rpe": "8"
+      },
+      "joint_stress": { "hip": "high", "spine": "high", "knee": "moderate" },
+      "longevity_benchmarks": ["deadlift_bw_ratio", "grip_strength", "bone_density"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "King of posterior chain lifts. Target: 1×BW → 1.5×BW over 6-12 months. Requires solid RDL form first. Higher spinal demand — form is critical."
+    },
+
+    {
+      "id": "dl_trap_bar",
+      "name": "Trap Bar Deadlift",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "hinge",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes", "hamstrings"],
+      "secondary_muscles": ["erectors", "core", "forearms"],
+      "equipment": ["barbell"],
+      "progression_chain": ["dl_romanian_db", "dl_romanian_bb", "dl_conventional", "dl_trap_bar"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "5-6", "rest_sec": 180 },
+        "schedule_b": { "sets": 3, "reps": "8-10", "rest_sec": 120 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "hip": "moderate", "spine": "moderate", "knee": "moderate" },
+      "longevity_benchmarks": ["deadlift_bw_ratio", "grip_strength", "bone_density"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Lower spinal stress than conventional. Great alternative for those with back concerns. Attia blueprint includes this on Friday full-body days."
+    },
+
+    {
+      "id": "lunge_db",
+      "name": "Dumbbell Walking Lunge",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "squat",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "unilateral",
+      "primary_muscles": ["quadriceps", "glutes"],
+      "secondary_muscles": ["hamstrings", "adductors", "core"],
+      "equipment": ["dumbbell", "bodyweight"],
+      "progression_chain": ["lunge_bw", "lunge_db", "lunge_bb"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "8 each leg", "rest_sec": 90 },
+        "schedule_b": { "sets": 3, "reps": "12 each leg", "rest_sec": 90 },
+        "rpe": "7"
+      },
+      "joint_stress": { "knee": "moderate", "hip": "moderate", "ankle": "moderate" },
+      "longevity_benchmarks": ["single_leg_balance", "sitting_rising_test"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Unilateral work corrects imbalances and trains balance. Research shows balance/coordination independently predict mortality (SRT data)."
+    },
+
+    {
+      "id": "lunge_bw",
+      "name": "Bodyweight Lunge",
+      "bucket": ["strength_lower", "stability_mobility"],
+      "movement_pattern": "squat",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "unilateral",
+      "primary_muscles": ["quadriceps", "glutes"],
+      "secondary_muscles": ["hamstrings", "core"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["lunge_bw", "lunge_db", "lunge_bb"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "10 each leg", "rest_sec": 60 },
+        "schedule_b": { "sets": 2, "reps": "12-15 each leg", "rest_sec": 60 },
+        "rpe": "5-6"
+      },
+      "joint_stress": { "knee": "low", "hip": "low" },
+      "longevity_benchmarks": ["single_leg_balance", "sitting_rising_test"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Starting point for unilateral lower work. Good warmup or beginner exercise."
+    },
+
+    {
+      "id": "step_up_db",
+      "name": "Dumbbell Step-Up",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "squat",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "unilateral",
+      "primary_muscles": ["quadriceps", "glutes"],
+      "secondary_muscles": ["hamstrings", "core"],
+      "equipment": ["dumbbell", "bodyweight"],
+      "progression_chain": ["step_up_bw", "step_up_db"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "8 each leg", "rest_sec": 90 },
+        "schedule_b": { "sets": 2, "reps": "12 each leg", "rest_sec": 90 },
+        "rpe": "7"
+      },
+      "joint_stress": { "knee": "moderate", "hip": "moderate" },
+      "longevity_benchmarks": ["single_leg_balance", "sitting_rising_test", "stair_climbing"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Highly functional — mimics stair climbing. Attia's Centenarian Decathlon includes stair climbing as a key task. Trains balance under load."
+    },
+
+    {
+      "id": "leg_curl_machine",
+      "name": "Leg Curl (Machine)",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "hinge",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["hamstrings"],
+      "secondary_muscles": ["calves"],
+      "equipment": ["cable_machine"],
+      "progression_chain": ["leg_curl_machine"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "8-10", "rest_sec": 90 },
+        "schedule_b": { "sets": 2, "reps": "12-15", "rest_sec": 60 },
+        "rpe": "7"
+      },
+      "joint_stress": { "knee": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Isolation accessory for hamstrings. Supplements compound hinge work. Good for quad/hamstring balance."
+    },
+
+    {
+      "id": "calf_raise_standing",
+      "name": "Standing Calf Raise",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "squat",
+      "training_pillar": "strength",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["calves"],
+      "secondary_muscles": [],
+      "equipment": ["cable_machine", "dumbbell", "bodyweight"],
+      "progression_chain": ["calf_raise_standing"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "10-12", "rest_sec": 60 },
+        "schedule_b": { "sets": 2, "reps": "15-20", "rest_sec": 60 },
+        "rpe": "6-7"
+      },
+      "joint_stress": { "ankle": "moderate" },
+      "longevity_benchmarks": ["single_leg_balance"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Calves support ankle stability and walking economy. Important for fall prevention in later decades."
+    },
+
+    {
+      "id": "hip_thrust_bb",
+      "name": "Barbell Hip Thrust",
+      "bucket": ["strength_lower"],
+      "movement_pattern": "hinge",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["glutes"],
+      "secondary_muscles": ["hamstrings", "core"],
+      "equipment": ["barbell", "bodyweight"],
+      "progression_chain": ["glute_bridge_bw", "hip_thrust_bb"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8", "rest_sec": 120 },
+        "schedule_b": { "sets": 3, "reps": "10-12", "rest_sec": 90 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "hip": "moderate", "spine": "low" },
+      "longevity_benchmarks": ["sitting_rising_test"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Maximal glute activation with low spinal stress. Good deadlift alternative for those with back concerns."
+    },
+
+    {
+      "id": "bench_press_db",
+      "name": "Dumbbell Bench Press",
+      "bucket": ["strength_push"],
+      "movement_pattern": "horizontal_push",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["chest", "anterior_deltoid"],
+      "secondary_muscles": ["triceps", "core"],
+      "equipment": ["dumbbell"],
+      "progression_chain": ["pushup", "bench_press_db", "bench_press_bb", "bench_press_incline"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8", "rest_sec": 150 },
+        "schedule_b": { "sets": 3, "reps": "10-12", "rest_sec": 90 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "shoulder": "moderate", "elbow": "moderate" },
+      "longevity_benchmarks": ["bench_bw_ratio", "pushup_count"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "More shoulder-friendly than barbell due to free range of motion. Good entry point before barbell bench."
+    },
+
+    {
+      "id": "bench_press_bb",
+      "name": "Barbell Bench Press",
+      "bucket": ["strength_push"],
+      "movement_pattern": "horizontal_push",
+      "training_pillar": "strength",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["chest", "anterior_deltoid"],
+      "secondary_muscles": ["triceps"],
+      "equipment": ["barbell"],
+      "progression_chain": ["pushup", "bench_press_db", "bench_press_bb", "bench_press_incline"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "5-6", "rest_sec": 180 },
+        "schedule_b": { "sets": 3, "reps": "8-10", "rest_sec": 120 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "shoulder": "high", "elbow": "moderate", "wrist": "moderate" },
+      "longevity_benchmarks": ["bench_bw_ratio", "bone_density"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Primary upper-push benchmark. Target: 0.5×BW → 1×BW over 6-12 months. Spotter or safety bars recommended."
+    },
+
+    {
+      "id": "bench_press_incline",
+      "name": "Incline Barbell Bench Press",
+      "bucket": ["strength_push"],
+      "movement_pattern": "horizontal_push",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["upper_chest", "anterior_deltoid"],
+      "secondary_muscles": ["triceps"],
+      "equipment": ["barbell", "dumbbell"],
+      "progression_chain": ["pushup", "bench_press_db", "bench_press_bb", "bench_press_incline"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8", "rest_sec": 150 },
+        "schedule_b": { "sets": 3, "reps": "8-10", "rest_sec": 120 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "shoulder": "moderate", "elbow": "moderate" },
+      "longevity_benchmarks": ["bench_bw_ratio"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Shifts emphasis to upper chest and front delt. Good variation for second push day of the week."
+    },
+
+    {
+      "id": "pushup",
+      "name": "Push-Up",
+      "bucket": ["strength_push"],
+      "movement_pattern": "horizontal_push",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["chest", "anterior_deltoid"],
+      "secondary_muscles": ["triceps", "core"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["pushup", "bench_press_db", "bench_press_bb", "bench_press_incline"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "8-12", "rest_sec": 90 },
+        "schedule_b": { "sets": 2, "reps": "12-15", "rest_sec": 60 },
+        "rpe": "6-7"
+      },
+      "joint_stress": { "shoulder": "low", "wrist": "moderate" },
+      "longevity_benchmarks": ["pushup_count"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Harvard study: 40+ push-ups associated with 96% reduced CVD risk. Fundamental benchmark exercise. Track max reps quarterly."
+    },
+
+    {
+      "id": "ohp_db",
+      "name": "Dumbbell Overhead Press",
+      "bucket": ["strength_push"],
+      "movement_pattern": "vertical_push",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["deltoids"],
+      "secondary_muscles": ["triceps", "upper_chest", "core"],
+      "equipment": ["dumbbell"],
+      "progression_chain": ["ohp_db_seated", "ohp_db", "ohp_bb"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8", "rest_sec": 150 },
+        "schedule_b": { "sets": 3, "reps": "10-12", "rest_sec": 90 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "shoulder": "moderate", "elbow": "low" },
+      "longevity_benchmarks": ["ohp_bw_ratio"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Standing version demands more core stabilization. Seated version is easier entry point. Builds shoulder girdle strength for posture and function."
+    },
+
+    {
+      "id": "ohp_db_seated",
+      "name": "Seated Dumbbell Overhead Press",
+      "bucket": ["strength_push"],
+      "movement_pattern": "vertical_push",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["deltoids"],
+      "secondary_muscles": ["triceps", "upper_chest"],
+      "equipment": ["dumbbell"],
+      "progression_chain": ["ohp_db_seated", "ohp_db", "ohp_bb"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8", "rest_sec": 120 },
+        "schedule_b": { "sets": 3, "reps": "10-12", "rest_sec": 90 },
+        "rpe": "7"
+      },
+      "joint_stress": { "shoulder": "moderate", "elbow": "low" },
+      "longevity_benchmarks": ["ohp_bw_ratio"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Back support reduces core demand. Good starting point to learn overhead pressing mechanics."
+    },
+
+    {
+      "id": "ohp_bb",
+      "name": "Barbell Overhead Press",
+      "bucket": ["strength_push"],
+      "movement_pattern": "vertical_push",
+      "training_pillar": "strength",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["deltoids"],
+      "secondary_muscles": ["triceps", "core", "upper_chest"],
+      "equipment": ["barbell"],
+      "progression_chain": ["ohp_db_seated", "ohp_db", "ohp_bb"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "5-6", "rest_sec": 180 },
+        "schedule_b": { "sets": 3, "reps": "8-10", "rest_sec": 120 },
+        "rpe": "8"
+      },
+      "joint_stress": { "shoulder": "high", "spine": "moderate", "wrist": "moderate" },
+      "longevity_benchmarks": ["ohp_bw_ratio", "bone_density"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Target: 0.35×BW → 0.65×BW over 6-12 months. Standing barbell OHP is a full-body lift. Requires good shoulder mobility."
+    },
+
+    {
+      "id": "dip",
+      "name": "Dip (Parallel Bars)",
+      "bucket": ["strength_push"],
+      "movement_pattern": "vertical_push",
+      "training_pillar": "strength",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["chest", "triceps"],
+      "secondary_muscles": ["anterior_deltoid", "core"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["dip_assisted", "dip", "dip_weighted"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-10", "rest_sec": 120 },
+        "schedule_b": { "sets": 2, "reps": "10-15", "rest_sec": 90 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "shoulder": "high", "elbow": "moderate" },
+      "longevity_benchmarks": ["pushup_count"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Excellent upper-body push compound. Use assisted machine or bands if bodyweight is too difficult initially."
+    },
+
+    {
+      "id": "tricep_pushdown",
+      "name": "Cable Tricep Pushdown",
+      "bucket": ["strength_push"],
+      "movement_pattern": "horizontal_push",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["triceps"],
+      "secondary_muscles": [],
+      "equipment": ["cable_machine"],
+      "progression_chain": ["tricep_pushdown"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "10-12", "rest_sec": 60 },
+        "schedule_b": { "sets": 2, "reps": "12-15", "rest_sec": 60 },
+        "rpe": "6-7"
+      },
+      "joint_stress": { "elbow": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Isolation accessory. Low priority — compound pushes cover triceps well. Include if time allows."
+    },
+
+    {
+      "id": "row_db",
+      "name": "Dumbbell Row (Single Arm)",
+      "bucket": ["strength_pull"],
+      "movement_pattern": "horizontal_pull",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "unilateral",
+      "primary_muscles": ["lats", "rhomboids"],
+      "secondary_muscles": ["biceps", "rear_deltoid", "core", "forearms"],
+      "equipment": ["dumbbell"],
+      "progression_chain": ["row_db", "row_bb", "row_cable_seated"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8 each arm", "rest_sec": 120 },
+        "schedule_b": { "sets": 3, "reps": "10-12 each arm", "rest_sec": 90 },
+        "rpe": "7"
+      },
+      "joint_stress": { "shoulder": "low", "elbow": "low", "spine": "low" },
+      "longevity_benchmarks": ["grip_strength"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Excellent beginner pull. Bench-supported version is very back-friendly. Unilateral work corrects imbalances. Builds grip incidentally."
+    },
+
+    {
+      "id": "row_bb",
+      "name": "Barbell Bent-Over Row",
+      "bucket": ["strength_pull"],
+      "movement_pattern": "horizontal_pull",
+      "training_pillar": "strength",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["lats", "rhomboids", "erectors"],
+      "secondary_muscles": ["biceps", "rear_deltoid", "forearms"],
+      "equipment": ["barbell"],
+      "progression_chain": ["row_db", "row_bb", "row_cable_seated"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "5-8", "rest_sec": 150 },
+        "schedule_b": { "sets": 3, "reps": "8-10", "rest_sec": 120 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "spine": "moderate", "shoulder": "low", "elbow": "low" },
+      "longevity_benchmarks": ["grip_strength"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Heavy pulling compound. Requires good hip hinge position. Excellent for overall back thickness and posture."
+    },
+
+    {
+      "id": "row_cable_seated",
+      "name": "Seated Cable Row",
+      "bucket": ["strength_pull"],
+      "movement_pattern": "horizontal_pull",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["lats", "rhomboids"],
+      "secondary_muscles": ["biceps", "rear_deltoid"],
+      "equipment": ["cable_machine"],
+      "progression_chain": ["row_db", "row_bb", "row_cable_seated"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "8-10", "rest_sec": 90 },
+        "schedule_b": { "sets": 2, "reps": "12-15", "rest_sec": 60 },
+        "rpe": "7"
+      },
+      "joint_stress": { "shoulder": "low", "spine": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Machine support reduces spinal load. Good alternative when fatigued or as a lighter variation."
+    },
+
+    {
+      "id": "inverted_row",
+      "name": "Inverted Row",
+      "bucket": ["strength_pull"],
+      "movement_pattern": "horizontal_pull",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["lats", "rhomboids"],
+      "secondary_muscles": ["biceps", "rear_deltoid", "core"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["inverted_row", "row_db", "row_bb"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "8-10", "rest_sec": 90 },
+        "schedule_b": { "sets": 2, "reps": "12-15", "rest_sec": 60 },
+        "rpe": "6-7"
+      },
+      "joint_stress": { "shoulder": "low", "elbow": "low" },
+      "longevity_benchmarks": ["pushup_count"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Bodyweight horizontal pull. Adjustable difficulty by changing body angle. Great warmup or full-body day exercise."
+    },
+
+    {
+      "id": "pullup",
+      "name": "Pull-Up",
+      "bucket": ["strength_pull"],
+      "movement_pattern": "vertical_pull",
+      "training_pillar": "strength",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["lats", "biceps"],
+      "secondary_muscles": ["forearms", "rear_deltoid", "core"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["lat_pulldown", "pullup_assisted", "pullup", "pullup_weighted"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "max (aim 5-10)", "rest_sec": 150 },
+        "schedule_b": { "sets": 3, "reps": "max (aim 5-10)", "rest_sec": 120 },
+        "rpe": "8-9"
+      },
+      "joint_stress": { "shoulder": "moderate", "elbow": "moderate" },
+      "longevity_benchmarks": ["grip_strength", "dead_hang_time"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Gold standard vertical pull. If unable to do full pull-ups, use band-assisted or lat pulldown. Builds grip and shoulder health simultaneously."
+    },
+
+    {
+      "id": "pullup_assisted",
+      "name": "Band-Assisted Pull-Up",
+      "bucket": ["strength_pull"],
+      "movement_pattern": "vertical_pull",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["lats", "biceps"],
+      "secondary_muscles": ["forearms", "rear_deltoid", "core"],
+      "equipment": ["bodyweight", "band"],
+      "progression_chain": ["lat_pulldown", "pullup_assisted", "pullup", "pullup_weighted"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8", "rest_sec": 120 },
+        "schedule_b": { "sets": 3, "reps": "8-12", "rest_sec": 90 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "shoulder": "moderate", "elbow": "low" },
+      "longevity_benchmarks": ["grip_strength", "dead_hang_time"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Bridge to unassisted pull-ups. Progressively use lighter bands. Track band thickness to measure progress."
+    },
+
+    {
+      "id": "lat_pulldown",
+      "name": "Lat Pulldown",
+      "bucket": ["strength_pull"],
+      "movement_pattern": "vertical_pull",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["lats"],
+      "secondary_muscles": ["biceps", "rear_deltoid"],
+      "equipment": ["cable_machine"],
+      "progression_chain": ["lat_pulldown", "pullup_assisted", "pullup", "pullup_weighted"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "6-8", "rest_sec": 120 },
+        "schedule_b": { "sets": 2, "reps": "10-12", "rest_sec": 90 },
+        "rpe": "7"
+      },
+      "joint_stress": { "shoulder": "low", "elbow": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Machine alternative to pull-ups. Adjustable weight makes it ideal for beginners. Good for lat development at higher rep ranges."
+    },
+
+    {
+      "id": "face_pull",
+      "name": "Cable Face Pull",
+      "bucket": ["strength_pull"],
+      "movement_pattern": "horizontal_pull",
+      "training_pillar": "strength",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["rear_deltoid", "rotator_cuff"],
+      "secondary_muscles": ["rhomboids", "mid_trapezius"],
+      "equipment": ["cable_machine", "band"],
+      "progression_chain": ["face_pull"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "12-15", "rest_sec": 60 },
+        "schedule_b": { "sets": 2, "reps": "15-20", "rest_sec": 60 },
+        "rpe": "6"
+      },
+      "joint_stress": { "shoulder": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Critical for shoulder health and posture. Counterbalances pressing work. Should appear in nearly every upper-body session. Low joint stress makes it ideal for high frequency."
+    },
+
+    {
+      "id": "bicep_curl_db",
+      "name": "Dumbbell Bicep Curl",
+      "bucket": ["strength_pull"],
+      "movement_pattern": "vertical_pull",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["biceps"],
+      "secondary_muscles": ["forearms"],
+      "equipment": ["dumbbell"],
+      "progression_chain": ["bicep_curl_db"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "10-12", "rest_sec": 60 },
+        "schedule_b": { "sets": 2, "reps": "12-15", "rest_sec": 60 },
+        "rpe": "6-7"
+      },
+      "joint_stress": { "elbow": "low" },
+      "longevity_benchmarks": ["grip_strength"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Low-priority isolation. Compound pulls cover biceps well. Include if time allows for elbow health and grip support."
+    },
+
+    {
+      "id": "farmer_carry",
+      "name": "Farmer's Carry",
+      "bucket": ["strength_lower", "strength_pull"],
+      "movement_pattern": "carry",
+      "training_pillar": "strength",
+      "fiber_type_bias": "mixed",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["forearms", "trapezius", "core"],
+      "secondary_muscles": ["shoulders", "glutes", "calves"],
+      "equipment": ["dumbbell", "kettlebell"],
+      "progression_chain": ["farmer_carry"],
+      "tracking_unit": "weight_duration",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "40 sec", "rest_sec": 90 },
+        "schedule_b": { "sets": 3, "reps": "60 sec", "rest_sec": 90 },
+        "rpe": "7"
+      },
+      "joint_stress": { "shoulder": "low", "spine": "low", "wrist": "moderate" },
+      "longevity_benchmarks": ["grip_strength", "dead_hang_time"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Attia emphasizes carries for grip + whole-body stability. Target: 40% BW per hand. The PURE study makes grip strength a tier-1 longevity metric."
+    },
+
+    {
+      "id": "dead_hang",
+      "name": "Dead Hang",
+      "bucket": ["strength_pull", "stability_mobility"],
+      "movement_pattern": "vertical_pull",
+      "training_pillar": "strength",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["forearms", "lats"],
+      "secondary_muscles": ["shoulders"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["dead_hang"],
+      "tracking_unit": "duration",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "max time", "rest_sec": 90 },
+        "schedule_b": { "sets": 2, "reps": "max time", "rest_sec": 90 },
+        "rpe": "8"
+      },
+      "joint_stress": { "shoulder": "moderate", "wrist": "moderate" },
+      "longevity_benchmarks": ["dead_hang_time", "grip_strength"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Attia gold standard: target 2 minutes. Also decompresses spine and improves shoulder health. Track max time quarterly."
+    },
+
+    {
+      "id": "kb_swing",
+      "name": "Kettlebell Swing",
+      "bucket": ["power"],
+      "movement_pattern": "hinge",
+      "training_pillar": "power",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["glutes", "hamstrings"],
+      "secondary_muscles": ["core", "erectors", "shoulders", "forearms"],
+      "equipment": ["kettlebell"],
+      "progression_chain": ["kb_swing", "kb_swing_single_arm"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "15", "rest_sec": 90 },
+        "schedule_b": { "sets": 2, "reps": "20", "rest_sec": 90 },
+        "rpe": "7"
+      },
+      "joint_stress": { "hip": "moderate", "spine": "moderate" },
+      "longevity_benchmarks": ["grip_strength"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Primary power exercise. Explosive hip extension trains fast-twitch fibers — the exact fibers aging destroys (Galpin). Attia includes on Friday sessions."
+    },
+
+    {
+      "id": "box_jump",
+      "name": "Box Jump",
+      "bucket": ["power"],
+      "movement_pattern": "squat",
+      "training_pillar": "power",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes"],
+      "secondary_muscles": ["calves", "hamstrings", "core"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["squat_jump", "box_jump", "depth_jump"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "5", "rest_sec": 120 },
+        "schedule_b": { "sets": 3, "reps": "5", "rest_sec": 120 },
+        "rpe": "7"
+      },
+      "joint_stress": { "knee": "moderate", "ankle": "moderate" },
+      "longevity_benchmarks": ["sitting_rising_test"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Plyometric power. Araújo 2025: muscle power outperforms strength as mortality predictor. Step down (don't jump down) to reduce joint impact. Start with low box."
+    },
+
+    {
+      "id": "squat_jump",
+      "name": "Squat Jump",
+      "bucket": ["power"],
+      "movement_pattern": "squat",
+      "training_pillar": "power",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes"],
+      "secondary_muscles": ["calves", "core"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["squat_jump", "box_jump", "depth_jump"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "5-8", "rest_sec": 90 },
+        "schedule_b": { "sets": 3, "reps": "5-8", "rest_sec": 90 },
+        "rpe": "7"
+      },
+      "joint_stress": { "knee": "moderate", "ankle": "moderate" },
+      "longevity_benchmarks": ["sitting_rising_test"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Entry-level plyometric. No equipment needed. Land softly with bent knees. Develops explosive force production."
+    },
+
+    {
+      "id": "med_ball_slam",
+      "name": "Medicine Ball Slam",
+      "bucket": ["power"],
+      "movement_pattern": "vertical_push",
+      "training_pillar": "power",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["lats", "core", "shoulders"],
+      "secondary_muscles": ["triceps", "hip_flexors"],
+      "equipment": ["dumbbell"],
+      "progression_chain": ["med_ball_slam"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "8-10", "rest_sec": 90 },
+        "schedule_b": { "sets": 2, "reps": "12-15", "rest_sec": 60 },
+        "rpe": "8"
+      },
+      "joint_stress": { "shoulder": "moderate", "spine": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Full-body explosive movement. Requires slam ball (dead bounce). Great for power production and stress relief. Low injury risk."
+    },
+
+    {
+      "id": "power_clean_hang",
+      "name": "Hang Power Clean",
+      "bucket": ["power"],
+      "movement_pattern": "hinge",
+      "training_pillar": "power",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["glutes", "hamstrings", "trapezius"],
+      "secondary_muscles": ["quadriceps", "core", "shoulders", "forearms"],
+      "equipment": ["barbell"],
+      "progression_chain": ["kb_swing", "power_clean_hang"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 4, "reps": "3-5", "rest_sec": 150 },
+        "schedule_b": { "sets": 3, "reps": "5-6", "rest_sec": 120 },
+        "rpe": "7-8"
+      },
+      "joint_stress": { "wrist": "high", "knee": "moderate", "spine": "moderate" },
+      "longevity_benchmarks": ["grip_strength"],
+      "difficulty_tier": "advanced",
+      "implicit_core": true,
+      "notes": "High-skill Olympic lift variation. Maximum power output. Only introduce after several months of KB swings and deadlifts. Consider coaching."
+    },
+
+    {
+      "id": "zone2_bike",
+      "name": "Stationary Bike — Zone 2",
+      "bucket": ["zone2_cardio"],
+      "movement_pattern": "locomotion",
+      "training_pillar": "zone2_cardio",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes", "hamstrings"],
+      "secondary_muscles": ["calves"],
+      "equipment": ["cardio_machine"],
+      "progression_chain": ["zone2_bike"],
+      "tracking_unit": "hr_zone",
+      "default_prescription": {
+        "schedule_a": { "duration_min": "45-60", "hr_zone": "60-70% max HR", "rpe": "4-5" },
+        "schedule_b": { "duration_min": "45-60", "hr_zone": "60-70% max HR", "rpe": "4-5" }
+      },
+      "joint_stress": { "knee": "low" },
+      "longevity_benchmarks": ["vo2max", "resting_hr"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Attia's preferred Zone 2 modality for precise HR control. Target 113-132 bpm for 32yo. Conversational pace. Must be steady-state — no intensity spikes. Start at 30 min if untrained, add 5 min/week."
+    },
+
+    {
+      "id": "zone2_row",
+      "name": "Rowing Ergometer — Zone 2",
+      "bucket": ["zone2_cardio"],
+      "movement_pattern": "locomotion",
+      "training_pillar": "zone2_cardio",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["lats", "quadriceps", "glutes"],
+      "secondary_muscles": ["hamstrings", "biceps", "core"],
+      "equipment": ["cardio_machine"],
+      "progression_chain": ["zone2_row"],
+      "tracking_unit": "hr_zone",
+      "default_prescription": {
+        "schedule_a": { "duration_min": "45-60", "hr_zone": "60-70% max HR", "rpe": "4-5" },
+        "schedule_b": { "duration_min": "45-60", "hr_zone": "60-70% max HR", "rpe": "4-5" }
+      },
+      "joint_stress": { "knee": "low", "spine": "low" },
+      "longevity_benchmarks": ["vo2max", "resting_hr"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Full-body low-impact Zone 2. Good rowing form is important — learn the leg-back-arms sequence. Slightly more upper body engagement than bike."
+    },
+
+    {
+      "id": "zone2_walk_brisk",
+      "name": "Brisk Walking — Zone 2",
+      "bucket": ["zone2_cardio"],
+      "movement_pattern": "locomotion",
+      "training_pillar": "zone2_cardio",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes", "calves"],
+      "secondary_muscles": ["hamstrings", "core"],
+      "equipment": ["none"],
+      "progression_chain": ["zone2_walk_brisk", "zone2_jog"],
+      "tracking_unit": "hr_zone",
+      "default_prescription": {
+        "schedule_a": { "duration_min": "45-60", "hr_zone": "60-70% max HR", "rpe": "4-5" },
+        "schedule_b": { "duration_min": "45-60", "hr_zone": "60-70% max HR", "rpe": "4-5" }
+      },
+      "joint_stress": { "knee": "low", "ankle": "low" },
+      "longevity_benchmarks": ["vo2max", "resting_hr"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Blue Zones data: daily walking is the universal centenarian exercise. May need incline to reach Zone 2 HR for fitter individuals. Outdoor preferred for sunlight/circadian benefit."
+    },
+
+    {
+      "id": "zone2_jog",
+      "name": "Easy Jog — Zone 2",
+      "bucket": ["zone2_cardio"],
+      "movement_pattern": "locomotion",
+      "training_pillar": "zone2_cardio",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes", "calves"],
+      "secondary_muscles": ["hamstrings", "hip_flexors", "core"],
+      "equipment": ["none"],
+      "progression_chain": ["zone2_walk_brisk", "zone2_jog"],
+      "tracking_unit": "hr_zone",
+      "default_prescription": {
+        "schedule_a": { "duration_min": "30-45", "hr_zone": "60-70% max HR", "rpe": "4-5" },
+        "schedule_b": { "duration_min": "30-45", "hr_zone": "60-70% max HR", "rpe": "4-5" }
+      },
+      "joint_stress": { "knee": "moderate", "ankle": "moderate" },
+      "longevity_benchmarks": ["vo2max", "resting_hr"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Higher impact than bike/row. Good bone density stimulus. Must maintain conversational pace — if breathing hard, slow down. Nasal breathing is a good intensity check."
+    },
+
+    {
+      "id": "zone2_swim",
+      "name": "Swimming — Zone 2",
+      "bucket": ["zone2_cardio"],
+      "movement_pattern": "locomotion",
+      "training_pillar": "zone2_cardio",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["lats", "shoulders", "core"],
+      "secondary_muscles": ["triceps", "chest", "hip_flexors"],
+      "equipment": ["none"],
+      "progression_chain": ["zone2_swim"],
+      "tracking_unit": "hr_zone",
+      "default_prescription": {
+        "schedule_a": { "duration_min": "30-45", "hr_zone": "60-70% max HR", "rpe": "4-5" },
+        "schedule_b": { "duration_min": "30-45", "hr_zone": "60-70% max HR", "rpe": "4-5" }
+      },
+      "joint_stress": { "shoulder": "moderate" },
+      "longevity_benchmarks": ["vo2max", "resting_hr"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Zero impact. Excellent for recovery-adjacent Zone 2. Requires competent swim technique to maintain steady effort. HR monitoring is harder in water."
+    },
+
+    {
+      "id": "vo2max_bike_4x4",
+      "name": "VO2max Intervals — Bike (4×4)",
+      "bucket": ["vo2max_intervals"],
+      "movement_pattern": "locomotion",
+      "training_pillar": "vo2max_interval",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes", "hamstrings"],
+      "secondary_muscles": ["calves", "core"],
+      "equipment": ["cardio_machine"],
+      "progression_chain": ["vo2max_bike_3x3", "vo2max_bike_4x4"],
+      "tracking_unit": "hr_zone",
+      "default_prescription": {
+        "schedule_a": {
+          "warmup_min": 5,
+          "intervals": "4 × 4 min at 90-95% max HR",
+          "recovery": "4 min easy between intervals",
+          "cooldown_min": 3,
+          "total_min": 25,
+          "rpe_work": "9",
+          "rpe_recovery": "3-4"
+        },
+        "schedule_b": {
+          "warmup_min": 5,
+          "intervals": "4 × 4 min at 90-95% max HR",
+          "recovery": "4 min easy between intervals",
+          "cooldown_min": 3,
+          "total_min": 25,
+          "rpe_work": "9",
+          "rpe_recovery": "3-4"
+        }
+      },
+      "joint_stress": { "knee": "low" },
+      "longevity_benchmarks": ["vo2max", "resting_hr"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": false,
+      "notes": "Norwegian 4×4 protocol: gold standard for VO2max. Helgerud 2007 showed 10-13% VO2max improvement in 8 weeks. Bike/rower safest for beginners (form doesn't degrade). Target ~169-179 bpm for 32yo during work intervals."
+    },
+
+    {
+      "id": "vo2max_bike_3x3",
+      "name": "VO2max Intervals — Bike (3×3 Beginner)",
+      "bucket": ["vo2max_intervals"],
+      "movement_pattern": "locomotion",
+      "training_pillar": "vo2max_interval",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes", "hamstrings"],
+      "secondary_muscles": ["calves"],
+      "equipment": ["cardio_machine"],
+      "progression_chain": ["vo2max_bike_3x3", "vo2max_bike_4x4"],
+      "tracking_unit": "hr_zone",
+      "default_prescription": {
+        "schedule_a": {
+          "warmup_min": 5,
+          "intervals": "3 × 3 min at 85-90% max HR",
+          "recovery": "3 min easy between intervals",
+          "cooldown_min": 3,
+          "total_min": 20,
+          "rpe_work": "8",
+          "rpe_recovery": "3-4"
+        },
+        "schedule_b": {
+          "warmup_min": 5,
+          "intervals": "3 × 3 min at 85-90% max HR",
+          "recovery": "3 min easy between intervals",
+          "cooldown_min": 3,
+          "total_min": 20,
+          "rpe_work": "8",
+          "rpe_recovery": "3-4"
+        }
+      },
+      "joint_stress": { "knee": "low" },
+      "longevity_benchmarks": ["vo2max", "resting_hr"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Scaled version for Foundation phase (weeks 1-4). Progress to 3×3.5 then 4×4 over 6-8 weeks. Add duration before adding intervals."
+    },
+
+    {
+      "id": "vo2max_row",
+      "name": "VO2max Intervals — Rower",
+      "bucket": ["vo2max_intervals"],
+      "movement_pattern": "locomotion",
+      "training_pillar": "vo2max_interval",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["lats", "quadriceps", "glutes"],
+      "secondary_muscles": ["hamstrings", "biceps", "core"],
+      "equipment": ["cardio_machine"],
+      "progression_chain": ["vo2max_row"],
+      "tracking_unit": "hr_zone",
+      "default_prescription": {
+        "schedule_a": {
+          "warmup_min": 5,
+          "intervals": "4 × 4 min at 90-95% max HR",
+          "recovery": "4 min easy between intervals",
+          "cooldown_min": 3,
+          "total_min": 25,
+          "rpe_work": "9",
+          "rpe_recovery": "3-4"
+        },
+        "schedule_b": {
+          "warmup_min": 5,
+          "intervals": "4 × 4 min at 90-95% max HR",
+          "recovery": "4 min easy between intervals",
+          "cooldown_min": 3,
+          "total_min": 25,
+          "rpe_work": "9",
+          "rpe_recovery": "3-4"
+        }
+      },
+      "joint_stress": { "knee": "low", "spine": "low" },
+      "longevity_benchmarks": ["vo2max", "resting_hr"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Rower VO2max alternative. Full-body engagement. Form must stay clean at high effort — watch for back rounding at end of intervals."
+    },
+
+    {
+      "id": "vo2max_run",
+      "name": "VO2max Intervals — Running",
+      "bucket": ["vo2max_intervals"],
+      "movement_pattern": "locomotion",
+      "training_pillar": "vo2max_interval",
+      "fiber_type_bias": "fast_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes", "calves"],
+      "secondary_muscles": ["hamstrings", "hip_flexors", "core"],
+      "equipment": ["none", "cardio_machine"],
+      "progression_chain": ["vo2max_run"],
+      "tracking_unit": "hr_zone",
+      "default_prescription": {
+        "schedule_a": {
+          "warmup_min": 5,
+          "intervals": "4 × 4 min at 90-95% max HR",
+          "recovery": "4 min easy jog between intervals",
+          "cooldown_min": 3,
+          "total_min": 25,
+          "rpe_work": "9",
+          "rpe_recovery": "3-4"
+        },
+        "schedule_b": {
+          "warmup_min": 5,
+          "intervals": "4 × 4 min at 90-95% max HR",
+          "recovery": "4 min easy jog between intervals",
+          "cooldown_min": 3,
+          "total_min": 25,
+          "rpe_work": "9",
+          "rpe_recovery": "3-4"
+        }
+      },
+      "joint_stress": { "knee": "high", "ankle": "moderate" },
+      "longevity_benchmarks": ["vo2max", "resting_hr"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": false,
+      "notes": "Running intervals are effective but form degrades under fatigue. Higher injury risk than bike/rower. Best for those with running experience. Also provides bone density stimulus."
+    },
+
+    {
+      "id": "stab_single_leg_balance",
+      "name": "Single-Leg Balance",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "core_stabilization",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "unilateral",
+      "primary_muscles": ["core", "glutes", "calves"],
+      "secondary_muscles": ["hip_stabilizers"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_single_leg_balance", "stab_single_leg_eyes_closed"],
+      "tracking_unit": "duration",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "30 sec each side", "rest_sec": 0 },
+        "schedule_b": { "sets": 2, "reps": "30 sec each side", "rest_sec": 0 },
+        "rpe": "3"
+      },
+      "joint_stress": { "ankle": "low" },
+      "longevity_benchmarks": ["single_leg_balance"],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "BJSM 2022: inability to balance 10 sec on one leg predicted 84% higher all-cause mortality. Test and train. Progress to eyes closed."
+    },
+
+    {
+      "id": "stab_single_leg_eyes_closed",
+      "name": "Single-Leg Balance — Eyes Closed",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "core_stabilization",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "unilateral",
+      "primary_muscles": ["core", "glutes", "calves"],
+      "secondary_muscles": ["hip_stabilizers"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_single_leg_balance", "stab_single_leg_eyes_closed"],
+      "tracking_unit": "duration",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "10-30 sec each side", "rest_sec": 0 },
+        "schedule_b": { "sets": 2, "reps": "10-30 sec each side", "rest_sec": 0 },
+        "rpe": "4"
+      },
+      "joint_stress": { "ankle": "low" },
+      "longevity_benchmarks": ["single_leg_balance"],
+      "difficulty_tier": "intermediate",
+      "implicit_core": true,
+      "notes": "Benchmark target: 10+ seconds eyes closed. Significantly harder — removes visual balance input. Introduced in Building phase (weeks 5+)."
+    },
+
+    {
+      "id": "stab_bird_dog",
+      "name": "Bird Dog",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "core_stabilization",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "unilateral",
+      "primary_muscles": ["core", "erectors"],
+      "secondary_muscles": ["glutes", "shoulders"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_bird_dog"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "8 each side", "rest_sec": 0 },
+        "schedule_b": { "sets": 2, "reps": "8 each side", "rest_sec": 0 },
+        "rpe": "3"
+      },
+      "joint_stress": {},
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "McGill Big 3 exercise. Anti-rotation and anti-extension under control. Appears in Attia's Monday and Friday warmups."
+    },
+
+    {
+      "id": "stab_plank_front",
+      "name": "Front Plank",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "core_stabilization",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["core", "shoulders"],
+      "secondary_muscles": ["glutes", "quadriceps"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_plank_front", "stab_plank_side"],
+      "tracking_unit": "duration",
+      "default_prescription": {
+        "schedule_a": { "sets": 3, "reps": "30-60 sec", "rest_sec": 30 },
+        "schedule_b": { "sets": 2, "reps": "30-60 sec", "rest_sec": 30 },
+        "rpe": "5-6"
+      },
+      "joint_stress": { "shoulder": "low", "wrist": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Foundation anti-extension exercise. Progress duration. Once 60 sec is easy, add complexity (arm/leg lifts, body saw) rather than just more time."
+    },
+
+    {
+      "id": "stab_plank_side",
+      "name": "Side Plank",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "core_stabilization",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "unilateral",
+      "primary_muscles": ["obliques", "core"],
+      "secondary_muscles": ["glutes", "shoulders"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_plank_front", "stab_plank_side"],
+      "tracking_unit": "duration",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "20-40 sec each side", "rest_sec": 0 },
+        "schedule_b": { "sets": 2, "reps": "20-40 sec each side", "rest_sec": 0 },
+        "rpe": "5-6"
+      },
+      "joint_stress": { "shoulder": "moderate" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "McGill Big 3. Anti-lateral-flexion. Addresses oblique imbalances. Important for spine health under load."
+    },
+
+    {
+      "id": "stab_cat_cow",
+      "name": "Cat-Cow",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "core_stabilization",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["erectors", "core"],
+      "secondary_muscles": [],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_cat_cow"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 1, "reps": "10", "rest_sec": 0 },
+        "schedule_b": { "sets": 1, "reps": "10", "rest_sec": 0 },
+        "rpe": "2"
+      },
+      "joint_stress": {},
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Warmup spinal mobilization. Synchronize with breath. Appears in every Attia warmup sequence."
+    },
+
+    {
+      "id": "stab_90_90_hip",
+      "name": "90/90 Hip Switch",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "rotation",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["hip_flexors", "glutes"],
+      "secondary_muscles": ["core", "adductors"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_90_90_hip"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 1, "reps": "8 each side", "rest_sec": 0 },
+        "schedule_b": { "sets": 1, "reps": "8 each side", "rest_sec": 0 },
+        "rpe": "3"
+      },
+      "joint_stress": { "hip": "low" },
+      "longevity_benchmarks": ["sitting_rising_test"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Hip internal and external rotation mobility. Important for squat depth and overall hip health. Getting on/off the floor is a key longevity skill."
+    },
+
+    {
+      "id": "stab_scapular_cars",
+      "name": "Scapular CARs",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "rotation",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "unilateral",
+      "primary_muscles": ["rotator_cuff", "rhomboids", "trapezius"],
+      "secondary_muscles": [],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_scapular_cars"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 1, "reps": "5 each direction", "rest_sec": 0 },
+        "schedule_b": { "sets": 1, "reps": "5 each direction", "rest_sec": 0 },
+        "rpe": "2"
+      },
+      "joint_stress": { "shoulder": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Controlled Articular Rotations for shoulder health. Appears in Wednesday upper-body warmup. Maintains shoulder joint range of motion."
+    },
+
+    {
+      "id": "stab_thoracic_rotation",
+      "name": "Thoracic Spine Rotation",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "rotation",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "unilateral",
+      "primary_muscles": ["erectors", "obliques"],
+      "secondary_muscles": [],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_thoracic_rotation"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 1, "reps": "8 each side", "rest_sec": 0 },
+        "schedule_b": { "sets": 1, "reps": "8 each side", "rest_sec": 0 },
+        "rpe": "2"
+      },
+      "joint_stress": {},
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Thoracic mobility affects squat depth, overhead pressing, and posture. One of the areas that tightens most from desk work."
+    },
+
+    {
+      "id": "stab_deep_squat_hold",
+      "name": "Deep Squat Hold",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "squat",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["hip_flexors", "adductors", "calves"],
+      "secondary_muscles": ["core", "quadriceps"],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_deep_squat_hold"],
+      "tracking_unit": "duration",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "30 sec", "rest_sec": 0 },
+        "schedule_b": { "sets": 2, "reps": "30 sec", "rest_sec": 0 },
+        "rpe": "3"
+      },
+      "joint_stress": { "knee": "low", "hip": "low", "ankle": "moderate" },
+      "longevity_benchmarks": ["sitting_rising_test"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Okinawan centenarians get up/down from floor 30+ times daily. This hold develops the hip and ankle mobility for full-depth squatting. Hold onto a post for support if needed."
+    },
+
+    {
+      "id": "stab_toe_yoga",
+      "name": "Toe Yoga",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "core_stabilization",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["foot_intrinsics"],
+      "secondary_muscles": [],
+      "equipment": ["bodyweight"],
+      "progression_chain": ["stab_toe_yoga"],
+      "tracking_unit": "duration",
+      "default_prescription": {
+        "schedule_a": { "sets": 1, "reps": "2 min", "rest_sec": 0 },
+        "schedule_b": { "sets": 1, "reps": "2 min", "rest_sec": 0 },
+        "rpe": "2"
+      },
+      "joint_stress": {},
+      "longevity_benchmarks": ["single_leg_balance"],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Attia foundation exercise. Lift big toe independently, then other toes. Foot intrinsic strength supports balance and gait. Appears in Monday warmup."
+    },
+
+    {
+      "id": "stab_band_pull_apart",
+      "name": "Band Pull-Apart",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "horizontal_pull",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["rear_deltoid", "rhomboids"],
+      "secondary_muscles": ["mid_trapezius"],
+      "equipment": ["band"],
+      "progression_chain": ["stab_band_pull_apart"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "15", "rest_sec": 0 },
+        "schedule_b": { "sets": 2, "reps": "15", "rest_sec": 0 },
+        "rpe": "3"
+      },
+      "joint_stress": { "shoulder": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Warmup activation for posterior shoulder. Counteracts pressing and desk posture. High frequency is beneficial."
+    },
+
+    {
+      "id": "stab_shoulder_dislocate",
+      "name": "Band Shoulder Dislocate",
+      "bucket": ["stability_mobility"],
+      "movement_pattern": "rotation",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["shoulders", "rotator_cuff"],
+      "secondary_muscles": ["chest", "lats"],
+      "equipment": ["band"],
+      "progression_chain": ["stab_shoulder_dislocate"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 1, "reps": "10", "rest_sec": 0 },
+        "schedule_b": { "sets": 1, "reps": "10", "rest_sec": 0 },
+        "rpe": "2-3"
+      },
+      "joint_stress": { "shoulder": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Full shoulder ROM exercise. Use wide grip band or PVC pipe. Appears in Wednesday warmup. Progress by narrowing grip width."
+    },
+
+    {
+      "id": "back_extension",
+      "name": "Back Extension (GHD or Floor)",
+      "bucket": ["strength_pull", "stability_mobility"],
+      "movement_pattern": "hinge",
+      "training_pillar": "strength",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "isolation",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["erectors"],
+      "secondary_muscles": ["glutes", "hamstrings"],
+      "equipment": ["bodyweight", "cable_machine"],
+      "progression_chain": ["back_extension"],
+      "tracking_unit": "weight_reps",
+      "default_prescription": {
+        "schedule_a": { "sets": 2, "reps": "10-12", "rest_sec": 60 },
+        "schedule_b": { "sets": 2, "reps": "12-15", "rest_sec": 60 },
+        "rpe": "5-6"
+      },
+      "joint_stress": { "spine": "low" },
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": true,
+      "notes": "Spinal erector endurance. Important for maintaining back health under compound lift loads. Controlled tempo — no momentum."
+    },
+
+    {
+      "id": "rest_walk",
+      "name": "Rest Day Walk",
+      "bucket": ["rest_day"],
+      "movement_pattern": "locomotion",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["quadriceps", "glutes", "calves"],
+      "secondary_muscles": [],
+      "equipment": ["none"],
+      "progression_chain": ["rest_walk"],
+      "tracking_unit": "duration",
+      "default_prescription": {
+        "schedule_a": { "duration_min": "20-30", "rpe": "2-3" },
+        "schedule_b": { "duration_min": "20-30", "rpe": "2-3" }
+      },
+      "joint_stress": {},
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Active recovery. Outdoor, morning preferred for circadian benefit. Blue Zones universal practice. Must stay below RPE 3 — no training stimulus."
+    },
+
+    {
+      "id": "rest_foam_roll",
+      "name": "Foam Rolling (Full Body)",
+      "bucket": ["rest_day"],
+      "movement_pattern": "core_stabilization",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": [],
+      "secondary_muscles": [],
+      "equipment": ["none"],
+      "progression_chain": ["rest_foam_roll"],
+      "tracking_unit": "duration",
+      "default_prescription": {
+        "schedule_a": { "duration_min": "10-15", "rpe": "2-3" },
+        "schedule_b": { "duration_min": "10-15", "rpe": "2-3" }
+      },
+      "joint_stress": {},
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Quads, hamstrings, lats, upper back, IT band. Aids muscle soreness and blood flow. Part of rest day protocol."
+    },
+
+    {
+      "id": "rest_stretch_routine",
+      "name": "Static Stretching Routine",
+      "bucket": ["rest_day", "stability_mobility"],
+      "movement_pattern": "core_stabilization",
+      "training_pillar": "stability_mobility",
+      "fiber_type_bias": "slow_twitch",
+      "compound_isolation": "compound",
+      "bilateral_unilateral": "bilateral",
+      "primary_muscles": ["hip_flexors", "hamstrings", "chest", "lats"],
+      "secondary_muscles": ["calves", "shoulders"],
+      "equipment": ["none"],
+      "progression_chain": ["rest_stretch_routine"],
+      "tracking_unit": "duration",
+      "default_prescription": {
+        "schedule_a": { "duration_min": "10-15", "rpe": "2-3", "hold_sec": "30-60 per stretch" },
+        "schedule_b": { "duration_min": "10-15", "rpe": "2-3", "hold_sec": "30-60 per stretch" }
+      },
+      "joint_stress": {},
+      "longevity_benchmarks": [],
+      "difficulty_tier": "beginner",
+      "implicit_core": false,
+      "notes": "Hip flexor, hamstring, pigeon pose, chest doorway stretch, lat stretch, calf stretch, thoracic extension over roller. Hold each 30-60 sec. Araújo 2024: low flexibility in men predicted 1.87× mortality."
+    }
+  ],
+
+  "weekly_goals": {
+    "zone2_cardio": {
+      "label": "Zone 2 Cardio",
+      "target_min": 150,
+      "target_max": 180,
+      "unit": "minutes",
+      "sessions_target": "3-4",
+      "description": "Steady-state at 60-70% max HR. Conversational pace."
+    },
+    "vo2max_intervals": {
+      "label": "VO2max Intervals",
+      "target_sessions": 1,
+      "unit": "sessions",
+      "description": "4×4 Norwegian protocol or scaled version. 90-95% max HR."
+    },
+    "strength_push": {
+      "label": "Strength: Push",
+      "target_exposures": 2,
+      "unit": "exposures",
+      "description": "Horizontal + vertical pressing. Bench, OHP, push-ups, dips."
+    },
+    "strength_pull": {
+      "label": "Strength: Pull",
+      "target_exposures": 2,
+      "unit": "exposures",
+      "description": "Rows + vertical pulls. DB rows, BB rows, pull-ups, pulldowns."
+    },
+    "strength_lower": {
+      "label": "Strength: Lower",
+      "target_exposures": 2,
+      "unit": "exposures",
+      "description": "Squat + hinge patterns. Squats, deadlifts, lunges, step-ups."
+    },
+    "power": {
+      "label": "Power",
+      "target_exposures_min": 1,
+      "target_exposures_max": 2,
+      "unit": "exposures",
+      "description": "Explosive movements for Type II fiber preservation. KB swings, jumps, cleans."
+    },
+    "stability_mobility": {
+      "label": "Stability & Mobility",
+      "target_frequency": "daily",
+      "target_min_per_session": 10,
+      "unit": "minutes",
+      "description": "Balance, CARs, breathing, mobility drills. Baked into warmups + standalone."
+    },
+    "rest_days": {
+      "label": "Rest Days",
+      "target_min": 2,
+      "target_max": 3,
+      "unit": "days",
+      "description": "Active recovery only. Walk 20-30 min + stretch/foam roll 10-15 min. Nothing above RPE 3."
+    }
+  },
+
+  "suggested_day_templates": {
+    "day_a_lower_power": {
+      "label": "Day A — Lower Body + Power",
+      "buckets_filled": ["strength_lower", "power", "stability_mobility"],
+      "estimated_duration_min": 70,
+      "structure": [
+        { "phase": "stability_warmup", "duration_min": 10, "exercises": ["stab_toe_yoga", "stab_single_leg_balance", "stab_cat_cow", "stab_90_90_hip", "stab_bird_dog", "stab_deep_squat_hold"] },
+        { "phase": "power", "duration_min": 10, "exercises": ["kb_swing OR squat_jump OR box_jump"] },
+        { "phase": "main_strength", "duration_min": 40, "exercises": ["sq_goblet OR sq_barbell_back", "dl_romanian_db OR dl_conventional", "lunge_db OR step_up_db", "leg_curl_machine", "calf_raise_standing"] },
+        { "phase": "grip_carry", "duration_min": 5, "exercises": ["farmer_carry"] },
+        { "phase": "cooldown", "duration_min": 5, "exercises": ["rest_stretch_routine"] }
+      ]
+    },
+    "day_b_zone2": {
+      "label": "Day B — Zone 2 Cardio",
+      "buckets_filled": ["zone2_cardio", "stability_mobility"],
+      "estimated_duration_min": 55,
+      "structure": [
+        { "phase": "stability", "duration_min": 10, "exercises": ["stab_single_leg_balance", "stab_thoracic_rotation", "stab_deep_squat_hold"] },
+        { "phase": "zone2", "duration_min": "45-60", "exercises": ["zone2_bike OR zone2_row OR zone2_walk_brisk OR zone2_jog OR zone2_swim"] }
+      ]
+    },
+    "day_c_upper": {
+      "label": "Day C — Upper Body Strength",
+      "buckets_filled": ["strength_push", "strength_pull", "stability_mobility"],
+      "estimated_duration_min": 70,
+      "structure": [
+        { "phase": "stability_warmup", "duration_min": 10, "exercises": ["stab_scapular_cars", "stab_band_pull_apart", "dead_hang", "stab_thoracic_rotation", "stab_shoulder_dislocate"] },
+        { "phase": "main_strength", "duration_min": 50, "exercises": ["bench_press_db OR bench_press_bb", "row_db OR row_bb", "ohp_db OR ohp_bb", "lat_pulldown OR pullup", "face_pull", "dead_hang"] },
+        { "phase": "accessories", "duration_min": 5, "exercises": ["bicep_curl_db OR tricep_pushdown"] },
+        { "phase": "cooldown", "duration_min": 5, "exercises": ["rest_stretch_routine"] }
+      ]
+    },
+    "day_d_zone2": {
+      "label": "Day D — Zone 2 Cardio",
+      "buckets_filled": ["zone2_cardio", "stability_mobility"],
+      "estimated_duration_min": 55,
+      "structure": [
+        { "phase": "stability", "duration_min": 10, "exercises": ["stab_single_leg_balance", "stab_bird_dog", "stab_plank_front"] },
+        { "phase": "zone2", "duration_min": "45-60", "exercises": ["zone2_bike OR zone2_row OR zone2_walk_brisk OR zone2_jog OR zone2_swim"] }
+      ]
+    },
+    "day_e_fullbody_vo2max": {
+      "label": "Day E — Full Body + VO2max",
+      "buckets_filled": ["strength_push", "strength_pull", "strength_lower", "vo2max_intervals", "stability_mobility"],
+      "estimated_duration_min": 75,
+      "structure": [
+        { "phase": "stability_warmup", "duration_min": 10, "exercises": ["stab_single_leg_balance", "stab_deep_squat_hold", "stab_scapular_cars", "stab_bird_dog"] },
+        { "phase": "main_strength", "duration_min": 40, "exercises": ["dl_trap_bar OR dl_conventional", "pushup OR bench_press_db", "step_up_db OR sq_goblet", "row_cable_seated OR inverted_row", "kb_swing"] },
+        { "phase": "vo2max", "duration_min": 25, "exercises": ["vo2max_bike_3x3 OR vo2max_bike_4x4 OR vo2max_row"] }
+      ]
+    },
+    "day_rest": {
+      "label": "Rest Day — Active Recovery",
+      "buckets_filled": ["rest_days"],
+      "estimated_duration_min": 35,
+      "structure": [
+        { "phase": "walk", "duration_min": "20-30", "exercises": ["rest_walk"] },
+        { "phase": "recovery", "duration_min": "10-15", "exercises": ["rest_foam_roll", "rest_stretch_routine"] }
+      ]
+    }
+  },
+
+  "longevity_benchmarks": {
+    "vo2max": {
+      "label": "VO2max",
+      "unit": "mL/kg/min",
+      "target": ">53",
+      "source": "Attia: elite for a decade younger",
+      "test_frequency": "quarterly",
+      "test_method": "Wearable estimate, Cooper 12-min test, or lab"
+    },
+    "resting_hr": {
+      "label": "Resting Heart Rate",
+      "unit": "bpm",
+      "target": "<60",
+      "source": "Above 75 bpm doubles CV risk vs below 60",
+      "test_frequency": "weekly"
+    },
+    "grip_strength": {
+      "label": "Grip Strength",
+      "unit": "kg",
+      "target": "~49.7 (dominant hand)",
+      "source": "PURE study: each 5 kg decrease = 16% mortality increase",
+      "test_frequency": "quarterly"
+    },
+    "dead_hang_time": {
+      "label": "Dead Hang Time",
+      "unit": "seconds",
+      "target": "120",
+      "source": "Attia gold standard",
+      "test_frequency": "monthly"
+    },
+    "pushup_count": {
+      "label": "Push-Up Max",
+      "unit": "reps",
+      "target": "40+",
+      "source": "Harvard: 40+ push-ups = 96% reduced CVD risk",
+      "test_frequency": "quarterly"
+    },
+    "single_leg_balance": {
+      "label": "Single-Leg Balance (Eyes Closed)",
+      "unit": "seconds",
+      "target": "10+",
+      "source": "BJSM 2022: <10 sec = 84% higher mortality",
+      "test_frequency": "monthly"
+    },
+    "sitting_rising_test": {
+      "label": "Sitting-Rising Test Score",
+      "unit": "score (0-10)",
+      "target": "8-10",
+      "source": "Araújo: each point = 21% survival improvement",
+      "test_frequency": "quarterly"
+    },
+    "squat_bw_ratio": {
+      "label": "Squat (BW Ratio)",
+      "unit": "×bodyweight",
+      "starting": "0.75",
+      "target": "1.25",
+      "timeline": "6-12 months",
+      "test_frequency": "monthly"
+    },
+    "deadlift_bw_ratio": {
+      "label": "Deadlift (BW Ratio)",
+      "unit": "×bodyweight",
+      "starting": "1.0",
+      "target": "1.5",
+      "timeline": "6-12 months",
+      "test_frequency": "monthly"
+    },
+    "bench_bw_ratio": {
+      "label": "Bench Press (BW Ratio)",
+      "unit": "×bodyweight",
+      "starting": "0.5",
+      "target": "1.0",
+      "timeline": "6-12 months",
+      "test_frequency": "monthly"
+    },
+    "ohp_bw_ratio": {
+      "label": "Overhead Press (BW Ratio)",
+      "unit": "×bodyweight",
+      "starting": "0.35",
+      "target": "0.65",
+      "timeline": "6-12 months",
+      "test_frequency": "monthly"
+    },
+    "body_fat_pct": {
+      "label": "Body Fat %",
+      "unit": "%",
+      "target": "10-20",
+      "test_frequency": "every 8-12 weeks",
+      "test_method": "DEXA, bioimpedance, or calipers"
+    }
+  },
+
+  "periodization": {
+    "phase_1_foundation": {
+      "weeks": "1-4",
+      "schedule": "B",
+      "rep_range": "8-15",
+      "focus": "Movement quality, light loads, habit building",
+      "zone2_start": "30 min if untrained, build to 45 min by week 4",
+      "vo2max": "3×3 min intervals",
+      "stability": "Basics: eyes-open balance, bird dogs, cat-cow",
+      "progression_rule": "Add weight only when form is solid. 2-for-2 rule."
+    },
+    "phase_2_building": {
+      "weeks": "5-8",
+      "schedule": "A",
+      "rep_range": "4-8",
+      "focus": "Heavier loads, add 4th set to main lifts",
+      "zone2": "All sessions 45-60 min",
+      "vo2max": "Progress to 4×3.5 min",
+      "stability": "Eyes-closed balance, longer dead hangs",
+      "deload": "Week 6 — same exercises at 70% working weight, Zone 2 reduced 25%, skip VO2max"
+    },
+    "phase_3_performance": {
+      "weeks": "9-12",
+      "schedule": "B (but heavier than phase 1)",
+      "rep_range": "8-15 at higher absolute loads",
+      "focus": "See how much stronger you've become",
+      "vo2max": "Full 4×4 protocol",
+      "targets": "Farmer carries 40% BW/hand, dead hang 60+ sec",
+      "deload": "Week 12 — full rest week. Walking only, daily stretching, progress assessment"
+    }
+  }
+}

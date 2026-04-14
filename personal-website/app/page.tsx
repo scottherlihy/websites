@@ -1,57 +1,130 @@
 import Image from "next/image";
-import Link from "next/link";
-import layoutStyles from "./layout.module.css";
-import utilStyles from "./utils.module.css";
-import styles from "./page.module.css";
+import ProjectCard from "./components/ProjectCard";
+
+const PROJECTS = [
+  {
+    name: "Good Morning",
+    description: "I think the future of AI-driven development is hyper customization. This is my morning dashboard I created to start my day. Yes it feels like MySpace 2.0 and I think that's cool.",
+    preview: "",
+    tech: ["Next.js 16", "Yahoo Finance", "Space Devs API", "SoundCloud"],
+    href: "/morning",
+    previewImage: null,
+    year: "2026",
+  },
+  {
+    name: "Realm",
+    description: "Multi-tenant hotel operations platform with real-time room management and shift scheduling.",
+    preview: "",
+    tech: ["Next.js 15", "Supabase"],
+    href: "https://realm-alpha-six.vercel.app/login",
+    previewImage: null,
+    year: "2026",
+  },
+  {
+    name: "Gift of Gab",
+    description: "Audio-first digital journaling app for parents with AI-powered transcription and tagging.",
+    preview: "",
+    tech: ["React Native", "Expo", "Supabase"],
+    href: "https://www.giftofgab.app/",
+    previewImage: null,
+    year: "2026",
+  },
+  {
+    name: "Click Clack",
+    description: "Kid-friendly web app where keyboard smashing triggers dynamic animations and sound effects at 60fps.",
+    preview: "",
+    tech: ["Next.js", "PixiJS", "Web Audio API"],
+    href: "https://click-clack-delta.vercel.app/",
+    previewImage: null,
+    year: "2026",
+  },
+  {
+    name: "Workout Generator",
+    description: "Custom workout generator and tracker tailored to evidence-based research on longevity and health.",
+    preview: "",
+    tech: ["Next.js", "Supabase"],
+    href: "/workout",
+    previewImage: null,
+    year: "2026",
+  },
+  {
+    name: "Robot Simulator",
+    description: "A foray into robotics to experiment with planning algorithms while building walls with a robot fleet.",
+    preview: "",
+    tech: ["Rust", "TypeScript"],
+    href: "https://robot-demo-mm5q8621p-scottherlihys-projects.vercel.app/",
+    previewImage: null,
+    year: "2026",
+  },
+];
+
+const EXPERIENCE = [
+  { role: "Senior Software Engineer / Manager", company: "Regrow Ag", location: "Amsterdam", period: "Present", current: true },
+  { role: "Software Engineer", company: "Belvedere Trading", location: "Chicago", period: "", current: false },
+  { role: "Student", company: "University of Chicago", location: "Chicago", period: "", current: false },
+];
 
 export default function Home() {
   return (
-    <div className={layoutStyles.container}>
-      <header className={layoutStyles.header}>
+    <div className="max-w-[720px] mx-auto px-6 py-12 flex flex-col gap-12">
+      {/* Hero */}
+      <header className="flex items-center gap-6 max-sm:flex-col max-sm:text-center">
         <Image
           priority
           src="/images/profile.jpg"
-          className={utilStyles.borderCircle}
-          height={222}
-          width={222}
+          className="rounded-full shrink-0"
+          height={120}
+          width={120}
           alt="Scott Herlihy"
         />
-        <h1 className={utilStyles.heading2Xl}>Scott Herlihy</h1>
+        <div className="flex flex-col gap-1.5">
+          <h1 className="text-[1.6rem] font-bold text-[#111] m-0">Scott Herlihy</h1>
+          <p className="text-[0.9rem] leading-relaxed text-[#555] m-0">
+            Interested in space, robotics, crypto, and urban infrastructure.
+            <br />
+            Currently in Amsterdam, building at a climate ag tech startup.
+          </p>
+          <div className="flex gap-4 mt-1 max-sm:justify-center">
+            <a href="https://github.com/scottherlihy" className="text-[0.8rem] text-[#888] no-underline hover:text-[#111]">GitHub</a>
+          </div>
+        </div>
       </header>
-      <main>
-        <section className={utilStyles.headingMd}>
-          <p>
-            Hi I&apos;m Scott, I&apos;m interested in space, robotics, crypto,
-            and urban infrastructure.
-          </p>
-          <p>
-            This is a personal website where I am having fun learning about how
-            to build web apps. I don&apos;t have a lot of front-end experience,
-            but I&apos;ve challenged myself to work on this website every day for
-            the next year and see where I end up. Hopefully I learn a lot and
-            build some cool things in the process. Follow along with the links
-            below and let me know if you have any ideas on what I should build!
-          </p>
-          <p>
-            See what I&apos;m building at my{" "}
-            <a href="https://github.com/scottherlihy">github</a> and see the
-            bad jokes I&apos;m making on{" "}
-            <a href="https://twitter.com/________scott">twitter</a>.
-          </p>
-        </section>
 
-        <div className={styles.grid}>
-          <Link href="/morning" className={styles.card}>
-            <h3>Good Morning &rarr;</h3>
-            <p>An in depth dashboard I created for my morning routine.</p>
-          </Link>
+      {/* Projects */}
+      <section className="flex flex-col gap-4">
+        <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.12em] text-[#999] m-0">Projects</h2>
+        <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
+          {PROJECTS.map((project) => (
+            <ProjectCard key={project.name} project={project} />
+          ))}
         </div>
+      </section>
 
-        <div className={layoutStyles.rocket}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/rocket.png" alt="zoom" />
+      {/* Experience */}
+      <section className="flex flex-col gap-4">
+        <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.12em] text-[#999] m-0">Experience</h2>
+        <div className="flex flex-col">
+          {EXPERIENCE.map((exp, i) => (
+            <div key={i} className="flex gap-4 py-3 relative">
+              <div className="w-3 flex items-start justify-center pt-1.5 shrink-0 relative">
+                <span className={`w-2 h-2 rounded-full ${exp.current ? "bg-[#111]" : "bg-[#ddd]"}`} />
+                {i < EXPERIENCE.length - 1 && (
+                  <span className="absolute top-[1.1rem] left-1/2 -translate-x-1/2 w-px bg-[#e5e5e5]" style={{ height: "calc(100% - 0.5rem)" }} />
+                )}
+              </div>
+              <div className="flex flex-col gap-0.5 flex-1">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-[0.85rem] font-semibold text-[#111]">
+                    {exp.role} <span className="font-normal text-[#666]">at {exp.company}</span>
+                  </span>
+                  <span className="text-[0.7rem] text-[#aaa]">{exp.period}</span>
+                </div>
+                <span className="text-[0.7rem] text-[#999]">{exp.location}</span>
+              </div>
+            </div>
+          ))}
         </div>
-      </main>
+      </section>
     </div>
   );
 }
